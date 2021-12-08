@@ -1,6 +1,6 @@
-# Mesa Orbital
+# EVE Online SSO site
 
-https://mesa-orbital.net
+![Screenshot](https://raw.githubusercontent.com/chrisrowles/eve-online-esi-sso/master/screenshot.png)
 
 ## Table of contents
 
