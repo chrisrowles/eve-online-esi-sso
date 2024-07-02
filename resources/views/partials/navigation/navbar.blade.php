@@ -1,7 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
     <a class="navbar-brand" href="{{ route('home') }}">
-        <img src="{{ asset('images/logo.png') }}" alt="" class="d-none d-sm-flex">
-        <img src="{{ asset('images/logo-sm.png') }}" alt="" class="d-flex d-sm-none">
+        SAKAGAMI
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

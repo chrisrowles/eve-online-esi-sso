@@ -67,8 +67,6 @@ class EsiAuthClient implements EsiClientInterface
                 ]
             ]);
         } catch (GuzzleException $e) {
-            Log::error($e->getMessage());
-
             return false;
         }
 
@@ -87,7 +85,7 @@ class EsiAuthClient implements EsiClientInterface
      * @param array $scopes
      * @return mixed
      */
-    public function authorize(array $scopes = [])
+    public function getAuthorizationServerURL(array $scopes = [])
     {
         $url = $this->base . '/v2/oauth/authorize?response_type=code';
         $url .= '&redirect_uri=' . urlencode(route('esi.sso.callback'));
@@ -95,7 +93,7 @@ class EsiAuthClient implements EsiClientInterface
         $url .= !empty($scopes) ? $this->buildScopeQueryString($scopes) : '';
         $url .= '&state=' . Str::random();
 
-        return redirect($url);
+        return $url;
     }
 
     /**

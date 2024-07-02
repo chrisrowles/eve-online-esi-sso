@@ -21,7 +21,7 @@ class HomeController extends BaseController
 
         $finances['ledger'] = $this->esi->buildCorporateLedger();
         $finances['total'] = 0;
-
+    
         foreach ($finances['ledger'] as $division)
         {
             $finances['total'] += $division->balance;

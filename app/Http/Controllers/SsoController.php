@@ -46,8 +46,9 @@ class SsoController extends Controller
         session()->put('character.corporate_member', true);
 
         $scopes = Scopes::pluck('name')->toArray();
+        $authorizationURL = $this->esi->getAuthorizationServerURL($scopes);
 
-        return $this->esi->authorize($scopes);
+        return redirect($authorizationURL);
     }
 
     /**
@@ -55,8 +56,7 @@ class SsoController extends Controller
      */
     public function logout()
     {
-        session()->forget('character');
-
+        session()->flush();
         return redirect()->home();
     }
 

@@ -3,6 +3,7 @@
 namespace Mesa;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Mesa\WalletJournal
@@ -35,6 +36,14 @@ use Illuminate\Database\Eloquent\Model;
 class WalletJournal extends Model
 {
     protected $table = 'wallet_journal';
+
+    protected static function boot()
+    {
+        parent::boot();
+        static::addGlobalScope('created_at_desc', function (Builder $builder) {
+            $builder->orderBy('created_at', 'desc');
+        });
+    }
 
     public function division()
     {

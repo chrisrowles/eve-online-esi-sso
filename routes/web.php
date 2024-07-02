@@ -14,38 +14,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/services/haulage', 'StaticPageController@haulage')->name('haulage');
+Route::get('/services/haulage', [\Mesa\Http\Controllers\StaticPageController::class, 'haulage'])->name('haulage');
 
 Route::group(['prefix' => 'eveauth'], function() {
-    Route::get('login', 'SsoController@login')->name('esi.sso.login');
-    Route::get('corporate/login', 'SsoController@corporateLogin')->name('esi.corporate.login');
-    Route::get('callback', 'SsoController@callback')->name('esi.sso.callback');
-    Route::get('logout', 'SsoController@logout')->name('esi.sso.logout');
+    Route::get('login', [\Mesa\Http\Controllers\SsoController::class, 'login'])->name('esi.sso.login');
+    Route::get('corporate/login', [\Mesa\Http\Controllers\SsoController::class, 'corporateLogin'])->name('esi.corporate.login');
+    Route::get('callback', [\Mesa\Http\Controllers\SsoController::class, 'callback'])->name('esi.sso.callback');
+    Route::get('logout', [\Mesa\Http\Controllers\SsoController::class, 'logout'])->name('esi.sso.logout');
 });
 
 Route::group(['prefix' => 'apply'], function() {
-    Route::get('', 'CorporateApplicants\ApplicationsController@index')->name('apply');
-    Route::post('submit', 'CorporateApplicants\ApplicationsController@submit')->name('apply.submit');
-    Route::get('info', 'CorporateApplicants\CharacterController@getInforequiredForApplication')->name('apply.info');
+    Route::get('', [\Mesa\Http\Controllers\CorporateApplicants\ApplicationsController::class, 'index'])->name('apply');
+    Route::post('submit', [\Mesa\Http\Controllers\CorporateApplicants\ApplicationsController::class, 'submit'])->name('apply.submit');
 });
 
 Route::group(['prefix' => 'corporate'], function() {
-    Route::get('management', 'CorporateManagement\HomeController@index')->name('corporate.management');
-    Route::get('mailbox', 'CorporateManagement\MailController@index')->name('corporate.mailbox');
-    Route::get('mailbox/{id}', 'CorporateManagement\MailController@view')->name('corporate.mailbox.view');
-    Route::get('applications', 'CorporateManagement\ApplicationsController@index')->name('corporate.applications');
-    Route::get('applications/{applicant}', 'CorporateManagement\ApplicationsController@view')->name('corporate.applications.view');
-    Route::put('applications/{applicant}', 'CorporateManagement\ApplicationsController@decideApplication')->name('corporate.applications.update');
-    Route::get('contracts', 'CorporateManagement\ContractsController@index')->name('corporate.contracts');
-    Route::post('contracts', 'CorporateManagement\ContractsController@updateContractsFromEsi')->name('corporate.contracts.update');
-    Route::get('finances', 'CorporateManagement\FinanceController@index')->name('corporate.finances');
-    Route::post('finances', 'CorporateManagement\FinanceController@updateJournalTransactionsFromEsi')->name('corporate.finances.update');
-    Route::get('orders', 'CorporateManagement\OrdersController@index')->name('corporate.orders');
-    Route::post('orders', 'CorporateManagement\OrdersController@updateOrderHistoryFromEsi')->name('corporate.orders.update');
+    Route::get('management', [\Mesa\Http\Controllers\CorporateManagement\HomeController::class, 'index'])->name('corporate.management');
+    Route::get('mailbox', [\Mesa\Http\Controllers\CorporateManagement\MailController::class, 'index'])->name('corporate.mailbox');
+    Route::get('mailbox/{id}', [\Mesa\Http\Controllers\CorporateManagement\MailController::class, 'view'])->name('corporate.mailbox.view');
+    Route::get('applications', [\Mesa\Http\Controllers\CorporateManagement\ApplicationsController::class, 'index'])->name('corporate.applications');
+    Route::get('applications/{applicant}', [\Mesa\Http\Controllers\CorporateManagement\ApplicationsController::class, 'view'])->name('corporate.applications.view');
+    Route::put('applications/{applicant}', [\Mesa\Http\Controllers\CorporateManagement\ApplicationsController::class, 'decideApplication'])->name('corporate.applications.update');
+    Route::get('contracts', [\Mesa\Http\Controllers\CorporateManagement\ContractsController::class, 'index'])->name('corporate.contracts');
+    Route::post('contracts', [\Mesa\Http\Controllers\CorporateManagement\ContractsController::class, 'updateContractsFromEsi'])->name('corporate.contracts.update');
+    Route::get('finances', [\Mesa\Http\Controllers\CorporateManagement\FinanceController::class, 'index'])->name('corporate.finances');
+    Route::post('finances', [\Mesa\Http\Controllers\CorporateManagement\FinanceController::class, 'updateJournalTransactionsFromEsi'])->name('corporate.finances.update');
+    Route::get('orders', [\Mesa\Http\Controllers\CorporateManagement\OrdersController::class, 'index'])->name('corporate.orders');
+    Route::post('orders', [\Mesa\Http\Controllers\CorporateManagement\OrdersController::class, 'updateOrderHistoryFromEsi'])->name('corporate.orders.update');
 });
 
 Route::group(['prefix' => 'services'], function() {
-    Route::get('route-planner', 'CorporateServices\RoutePlanningController@index');
+    Route::get('route-planner', function() {
+        dd('none');
+    });
 });
 
-Route::post('/import/{type}/{subtype}', 'CorporateManagement\ImportController@import')->name('import');
+Route::post('/import/{type}/{subtype}', [\Mesa\Http\Controllers\CorporateManagement\ImportController::class, 'import'])->name('import');

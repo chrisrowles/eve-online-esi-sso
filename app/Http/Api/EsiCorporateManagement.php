@@ -57,9 +57,6 @@ class EsiCorporateManagement extends EsiAuthClient
 
         if ($divisions && $balances)
         {
-            array_shift($divisions);
-            array_shift($balances);
-
             foreach ($divisions as $division)
             {
                 foreach ($balances as $x => $balance)
@@ -89,6 +86,8 @@ class EsiCorporateManagement extends EsiAuthClient
                     }
                 }
             }
+
+            $divisions[0]->name = 'Master Division';
 
             return $divisions;
         }
@@ -234,18 +233,15 @@ class EsiCorporateManagement extends EsiAuthClient
      */
     public function updateDataAccessJournalTransactions($ledger = null)
     {
-        if(is_null($ledger))
-        {
+        if (is_null($ledger)) {
             $ledger = $this->buildCorporateLedger(true);
         }
 
-        foreach ($ledger as $division)
-        {
+        foreach ($ledger as $division) {
             $id = $division->division;
-            foreach ($division->journal as $row)
-            {
-                if (WalletJournal::where('journal_id', $row->id)->first() === null)
-                {
+
+            foreach ($division->journal as $row) {
+                if (! WalletJournal::whereJournalId($row->id)->exists()) {
                     $model = new WalletJournal();
 
                     $model->division_id = $id;
@@ -261,9 +257,8 @@ class EsiCorporateManagement extends EsiAuthClient
                 }
             }
 
-            foreach ($division->transactions as $row)
-            {
-                if (WalletTransaction::where('transaction_id', $row->transaction_id)->first() === null) {
+            foreach ($division->transactions as $row) {
+                if (! WalletTransaction::whereTransactionId($row->transaction_id)->exists()) {
                     $model = new WalletTransaction();
 
                     $model->division_id = $id;

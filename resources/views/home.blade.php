@@ -10,13 +10,13 @@
                 <div class="col-md-12">
                     <div class="jumbotron bg-none">
                         <h1>
-                            Welcome to Allsides
+                            Sakagami Incorporated.
                         </h1>
                         <div class="ml-2">
                             <p class="font-big">
-                                We're a logistics corporation operating throughout New Eden.
+                                We're a logistics corporation operating throughout New Eden and Anoikis.
                             </p>
-                            <div class="row">
+                            <div class="row mt-5">
                                 <div class="col-12 col-sm-6 col-md-4 col-lg-2">
                                     <div class="card filter" style="height: initial;">
                                         <div class="card-body">

@@ -79,7 +79,7 @@
             );
 
             let table = $('#corporate_finances').DataTable({
-                order: [[ 3, "desc" ]]
+                order: [[ 0, "desc" ]]
             });
 
             // TODO remove hard-coded divisions

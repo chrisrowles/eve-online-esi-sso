@@ -10,7 +10,7 @@
             <input type="text" id="collateral" class="form-control" tabindex="1" placeholder="Collateral">
         </div>
         <div class="col">
-            <label for="reward">Reward</label>
+            <label for="reward">Cost</label>
             <input type="text" id="reward" class="form-control" tabindex="-1" readonly>
         </div>
     </div>
@@ -21,7 +21,7 @@
             <input type="text" id="jumps" class="form-control" tabindex="2" placeholder="# of Jumps">
         </div>
         <div class="col">
-            <label for="reward_ipj">ISK per Jump</label>
+            <label for="reward_ipj">Cost per Jump</label>
             <input type="text" id="reward_ipj" class="form-control" tabindex="-1" readonly>
         </div>
     </div>

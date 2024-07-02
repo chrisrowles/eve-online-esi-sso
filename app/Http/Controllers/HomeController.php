@@ -14,6 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // dd(session()->all());
         $contracts = Contract::count();
 
         return view('home', compact('contracts'));
