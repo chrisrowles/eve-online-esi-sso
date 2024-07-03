@@ -26,11 +26,9 @@ class BaseController extends Controller
         $this->auth = $auth;
 
         $this->middleware(function($request, $next) {
-            if (session('character'))
-            {
-                $this->initializeEsi();
-                if (Carbon::parse(session('character.expires_on'))->isPast())
-                {
+            if (session('character')) {
+                $this->esi = new EsiCorporateManagement(session('character'));
+                if (Carbon::parse(session('character.expires_on'))->isPast()) {
                     $this->auth->refreshAccessToken();
                 }
 
@@ -39,13 +37,5 @@ class BaseController extends Controller
 
             return redirect(route('esi.corporate.login'));
         });
-    }
-
-    /**
-     * Initialize an ESI instance.
-     */
-    public function initializeEsi() : void
-    {
-        $this->esi = new EsiCorporateManagement(session('character'));
     }
 }

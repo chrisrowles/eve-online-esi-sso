@@ -28,7 +28,7 @@ Route::group(['prefix' => 'apply'], function() {
     Route::post('submit', [\Mesa\Http\Controllers\CorporateApplicants\ApplicationsController::class, 'submit'])->name('apply.submit');
 });
 
-Route::group(['prefix' => 'corporate'], function() {
+Route::middleware('esi')->prefix('corporate')->group(function() {
     Route::get('management', [\Mesa\Http\Controllers\CorporateManagement\HomeController::class, 'index'])->name('corporate.management');
     Route::get('mailbox', [\Mesa\Http\Controllers\CorporateManagement\MailController::class, 'index'])->name('corporate.mailbox');
     Route::get('mailbox/{id}', [\Mesa\Http\Controllers\CorporateManagement\MailController::class, 'view'])->name('corporate.mailbox.view');
@@ -41,12 +41,6 @@ Route::group(['prefix' => 'corporate'], function() {
     Route::post('finances', [\Mesa\Http\Controllers\CorporateManagement\FinanceController::class, 'updateJournalTransactionsFromEsi'])->name('corporate.finances.update');
     Route::get('orders', [\Mesa\Http\Controllers\CorporateManagement\OrdersController::class, 'index'])->name('corporate.orders');
     Route::post('orders', [\Mesa\Http\Controllers\CorporateManagement\OrdersController::class, 'updateOrderHistoryFromEsi'])->name('corporate.orders.update');
-});
-
-Route::group(['prefix' => 'services'], function() {
-    Route::get('route-planner', function() {
-        dd('none');
-    });
 });
 
 Route::post('/import/{type}/{subtype}', [\Mesa\Http\Controllers\CorporateManagement\ImportController::class, 'import'])->name('import');
