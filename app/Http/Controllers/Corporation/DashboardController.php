@@ -18,10 +18,10 @@ class DashboardController extends Controller
             ->where('status', '!=', 'deleted')
             ->get();
 
-        $finances['ledger'] = $this->esi->buildCorporateLedger();
+        $finances['balances'] = $this->esi->buildCorporateBalances();
         $finances['total'] = 0;
     
-        foreach ($finances['ledger'] as $division)
+        foreach ($finances['balances'] as $division)
         {
             $finances['total'] += $division->balance;
         }

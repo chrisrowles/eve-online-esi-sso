@@ -15,11 +15,11 @@ class FinanceController extends Controller
      */
     public function index()
     {
-        $finances['ledger'] = $this->esi->buildCorporateLedger();
+        $finances['balances'] = $this->esi->buildCorporateBalances();
         $finances['journal'] = WalletJournal::with('division')->get();
         $finances['total'] = 0;
 
-        foreach ($finances['ledger'] as $division)
+        foreach ($finances['balances'] as $division)
         {
             $finances['total'] += $division->balance;
         }

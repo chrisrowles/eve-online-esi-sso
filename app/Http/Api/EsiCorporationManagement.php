@@ -40,12 +40,12 @@ class EsiCorporationManagement extends EsiClient
     }
 
     /**
-     * Build corporation ledger.
+     * Build corporation balances.
      *
      * @param bool $withTransactionJournal
      * @return mixed
      */
-    public function buildCorporateLedger($withTransactionJournal = false, $fromDataAccess = false)
+    public function buildCorporateBalances($withTransactionJournal = false, $fromDataAccess = false)
     {
         $divisions = $this->fetchCorporateDivisions('wallet');
         $balances = $this->fetchCorporateBalances();
@@ -224,15 +224,15 @@ class EsiCorporationManagement extends EsiClient
     /**
      * Update journals and transactions.
      *
-     * @param mixed $ledger
+     * @param mixed $balances
      */
-    public function updateDataAccessJournalTransactions($ledger = null)
+    public function updateDataAccessJournalTransactions($balances = null)
     {
-        if (is_null($ledger)) {
-            $ledger = $this->buildCorporateLedger(true);
+        if (is_null($balances)) {
+            $balances = $this->buildCorporateBalances(true);
         }
 
-        foreach ($ledger as $division) {
+        foreach ($balances as $division) {
             $id = $division->division;
 
             foreach ($division->journal as $row) {

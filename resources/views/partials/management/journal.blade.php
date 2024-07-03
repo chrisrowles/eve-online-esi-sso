@@ -10,7 +10,7 @@
 
 <div class="row mt-4">
     <div class="col-12 d-flex align-items-center justify-content-between">
-        <h2>Corporate Ledger</h2>
+        <h2>Financial Journal</h2>
         <small class="text-muted">(Outstanding: {{ 1 }})</small>
     </div>
 </div>

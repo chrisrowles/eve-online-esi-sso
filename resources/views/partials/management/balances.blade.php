@@ -4,9 +4,9 @@
     </div>
 </div>
 <div class="row text-light">
-    @if(!empty($finances['ledger']))
-        @foreach($finances['ledger'] as $division)
-            <div class="col-12 col-sm-6 col-md-4 mt-3">
+    @if(!empty($finances['balances']))
+        @foreach($finances['balances'] as $division)
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-3">
                 <div class="card p-2 bg-dark filter shadow">
                     <div class="card-body">
                         <h5 class="text-white">{{ $division->name }}</h5>

@@ -14,7 +14,7 @@
             </div>
             <hr>
             @include('partials.management.balances')
-            @include('partials.management.ledger')
+            @include('partials.management.journal')
         </div>
     </div>
 @endsection

@@ -16,10 +16,10 @@ class OrdersController extends Controller
     public function index()
     {
         $finances['orders'] = OrderHistory::with('division')->get();
-        $finances['ledger'] = $this->esi->buildCorporateLedger();
+        $finances['balances'] = $this->esi->buildCorporateBalances();
         $finances['total'] = 0;
 
-        foreach ($finances['ledger'] as $division)
+        foreach ($finances['balances'] as $division)
         {
             $finances['total'] += $division->balance;
         }
