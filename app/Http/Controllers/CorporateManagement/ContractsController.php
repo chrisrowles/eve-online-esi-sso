@@ -7,7 +7,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Mesa\Models\Contract;
-use Illuminate\Http\Request;
 
 class ContractsController extends BaseController
 {
@@ -24,20 +23,11 @@ class ContractsController extends BaseController
     /**
      * Update contracts from the ESI.
      *
-     * @param Request $request
-     *
      * @return RedirectResponse
      */
-    public function updateContractsFromEsi(Request $request): RedirectResponse
+    public function updateContractsFromEsi(): RedirectResponse
     {
-        $contracts = $this->esi->updateDataAccessContracts();
-        if ($contracts['errors'] > 0)
-        {
-            $request->session()->flash('error', 'Could not fetch contracts from the ESI, please check the logs.');
-        } else {
-            $request->session()->flash('success', $contracts['total'] . ' contracts successfully updated');
-        }
-
+        $this->esi->updateDataAccessContracts();
         return redirect()->back();
     }
 }

@@ -42,9 +42,7 @@ class ApplicationsController extends BaseController
      */
     public function decideApplication(Application $applicant, Request $request): RedirectResponse
     {
-        if (!$request->get('status')) {
-            $request->session()->flash('error', 'No decision has been passed.');
-
+        if (! $request->get('status')) {
             return redirect()->back();
         }
 

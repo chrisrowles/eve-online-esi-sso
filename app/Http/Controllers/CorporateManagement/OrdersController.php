@@ -31,20 +31,11 @@ class OrdersController extends BaseController
     /**
      * Update order history from the ESI.
      *
-     * @param Request $request
      * @return RedirectResponse
      */
-    public function updateOrderHistoryFromEsi(Request $request): RedirectResponse
+    public function updateOrderHistoryFromEsi(): RedirectResponse
     {
-        $orders = $this->esi->updateDataAccessOrderHistory();
-
-        if ($orders['errors'] > 0)
-        {
-            $request->session()->flash('error', 'Could not update order history from the ESI, please check the logs.');
-        } else {
-            $request->session()->flash('success', $orders['total'] . ' orders successfully updated');
-        }
-
+        $this->esi->updateDataAccessOrderHistory();
         return redirect()->back();
     }
 }

@@ -31,15 +31,11 @@ class FinanceController extends BaseController
     /**
      * Update journal transactions from the ESI.
      *
-     * @param Request $request
      * @return RedirectResponse
      */
-    public function updateJournalTransactionsFromEsi(Request $request): RedirectResponse
+    public function updateJournalTransactionsFromEsi(): RedirectResponse
     {
         $this->esi->updateDataAccessJournalTransactions();
-
-        $request->session()->flash('success', 'Financial journals and transactions successfully updated.');
-
         return redirect()->back();
     }
 }
