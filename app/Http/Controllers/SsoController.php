@@ -9,24 +9,24 @@ use Illuminate\Routing\Controller;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
-use Mesa\Http\Api\EsiClient;
+use Mesa\Contracts\EsiClientContract;
 use Mesa\Models\Scopes;
-use Mesa\Http\Api\JWTValidator;
+use Mesa\Http\Api\JwtValidator;
 
 class SsoController extends Controller
 {
-    /** @var EsiClient $esi */
-    protected EsiClient $esi;
+    /** @var EsiClientContract $esi */
+    protected EsiClientContract $esi;
 
-    /** @var JWTValidator $validator */
-    protected JWTValidator $validator;
+    /** @var JwtValidator $validator */
+    protected JwtValidator $validator;
 
     /**
      * SsoController constructor.
      *
-     * @param EsiClientInterface $esi
+     * @param EsiClientContract $esi
      */
-    public function __construct(EsiClient $esi, JWTValidator $validator)
+    public function __construct(EsiClientContract $esi, JwtValidator $validator)
     {
         $this->esi = $esi;
         $this->validator = $validator;

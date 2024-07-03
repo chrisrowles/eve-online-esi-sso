@@ -8,11 +8,12 @@ use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Mesa\Contracts\EsiClientContract;
 
 /**
  * ESI auth client.
  */
-class EsiClient implements EsiClientInterface
+class EsiClient implements EsiClientContract
 {
     /** @var string $server */
     protected string $server;
@@ -60,7 +61,7 @@ class EsiClient implements EsiClientInterface
      * @param string $url
      * @return void
      */
-    public function setURL(string $url)
+    public function setURL(string $url): void
     {
         $this->url = $url;
     }
@@ -70,9 +71,9 @@ class EsiClient implements EsiClientInterface
      *
      * @param string $endpoint
      * @param string $method
-     * @return bool|mixed
+     * @return mixed
      */
-    public function fetch(string $endpoint = '', string $method = 'GET', bool $isVersioned = true, $isAssociated = false)
+    public function fetch(string $endpoint = '', string $method = 'GET', bool $isVersioned = true, $isAssociated = false): mixed
     {
         $endpoint .= $this->server;
         try {
@@ -106,9 +107,9 @@ class EsiClient implements EsiClientInterface
      *
      * return mixed
      * @param array $scopes
-     * @return mixed
+     * @return string
      */
-    public function getAuthorizationServerURL(array $scopes = [])
+    public function getAuthorizationServerURL(array $scopes = []): string
     {
         $url = config('eve.esi.login_uri') . '/v2/oauth/authorize?response_type=code';
         $url .= '&redirect_uri=' . urlencode(route('esi.sso.callback'));
@@ -127,7 +128,7 @@ class EsiClient implements EsiClientInterface
      *
      * @throws GuzzleException
      */
-    public function issueAccessToken(Request $request)
+    public function issueAccessToken(Request $request): mixed
     {
         $this->code = $request->get('code');
 
@@ -151,7 +152,7 @@ class EsiClient implements EsiClientInterface
      * @throws GuzzleException
      * @return void
      */
-    public function refreshAccessToken()
+    public function refreshAccessToken(): void
     {
         $response = $this->client->request('POST', '/v2/oauth/token', [
             'auth' => [
@@ -179,7 +180,7 @@ class EsiClient implements EsiClientInterface
      * @return bool|mixed
      * @throws GuzzleException
      */
-    public function verifyAuthorization()
+    public function verifyAuthorization(): mixed
     {
         if (!session('character.access_token')) {
             return false;
@@ -200,7 +201,7 @@ class EsiClient implements EsiClientInterface
      * @param array $scopes
      * @return string
      */
-    private function attachAuthorizationScopes(array $scopes)
+    private function attachAuthorizationScopes(array $scopes): string
     {
         $query = '&scope=';
         $count = count($scopes);

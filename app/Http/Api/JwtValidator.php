@@ -7,7 +7,7 @@ use Firebase\JWT\JWK;
 use Firebase\JWT\JWT;
 use Mesa\Http\Api\EsiClient;
 
-class JWTValidator extends EsiClient
+class JwtValidator extends EsiClient
 {    
     /**
      * Validate JWT tokens from ESI
