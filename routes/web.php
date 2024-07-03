@@ -27,7 +27,7 @@ Route::group(['prefix' => 'apply'], function() {
 });
 
 Route::middleware('esi')->prefix('corporation')->group(function() {
-    Route::get('dashboard', [\Mesa\Http\Controllers\Corporation\HomeController::class, 'index'])->name('corporation.management');
+    Route::get('dashboard', [\Mesa\Http\Controllers\Corporation\DashboardController::class, 'index'])->name('corporation.dashboard');
 
     Route::get('mailbox', [\Mesa\Http\Controllers\Corporation\MailController::class, 'index'])->name('corporation.mailbox');
     Route::get('mailbox/{id}', [\Mesa\Http\Controllers\Corporation\MailController::class, 'view'])->name('corporation.mailbox.view');

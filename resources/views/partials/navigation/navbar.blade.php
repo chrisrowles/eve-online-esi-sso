@@ -23,7 +23,7 @@
                             <i class="fas fa-star"></i> Corporation Management
                         </a>
                         <div class="dropdown-menu" aria-labelledby="corporate_management">
-                            <a class="dropdown-item nav-item" href="{{ route('corporation.management') }}">Dashboard</a>
+                            <a class="dropdown-item nav-item" href="{{ route('corporation.dashboard') }}">Dashboard</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item nav-item" href="{{ route('corporation.mailbox') }}">Mail</a>
                             <a class="dropdown-item nav-item" href="{{ route('corporation.applications') }}">Applications</a>

@@ -7,7 +7,7 @@ use Illuminate\View\View;
 use Mesa\Models\Application;
 use Mesa\Models\Contract;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|Factory|View

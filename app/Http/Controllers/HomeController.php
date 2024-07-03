@@ -2,7 +2,6 @@
 
 namespace Mesa\Http\Controllers;
 
-use Mesa\Models\Contract;
 use Illuminate\Routing\Controller;
 
 class HomeController extends Controller
@@ -14,9 +13,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // dd(session()->all());
-        $contracts = Contract::count();
-
-        return view('home', compact('contracts'));
+        return view('home');
     }
 }
