@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Controllers\CorporateApplicants;
+namespace Mesa\Http\Controllers\Applications;
 
 use Illuminate\Http\Request;
 use Mesa\Models\Application;

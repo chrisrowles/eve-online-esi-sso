@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Controllers\CorporateManagement;
+namespace Mesa\Http\Controllers\Corporation;
 
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -49,6 +49,6 @@ class ApplicationsController extends Controller
         $applicant->status = $request->get('status');
         $applicant->save();
 
-        return redirect()->route('corporate.applications');
+        return redirect()->route('corporation.applications');
     }
 }

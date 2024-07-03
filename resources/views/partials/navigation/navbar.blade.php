@@ -23,14 +23,14 @@
                             <i class="fas fa-star"></i> Corporation Management
                         </a>
                         <div class="dropdown-menu" aria-labelledby="corporate_management">
-                            <a class="dropdown-item nav-item" href="{{ route('corporate.management') }}">Dashboard</a>
+                            <a class="dropdown-item nav-item" href="{{ route('corporation.management') }}">Dashboard</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item nav-item" href="{{ route('corporate.mailbox') }}">Mail</a>
-                            <a class="dropdown-item nav-item" href="{{ route('corporate.applications') }}">Applications</a>
+                            <a class="dropdown-item nav-item" href="{{ route('corporation.mailbox') }}">Mail</a>
+                            <a class="dropdown-item nav-item" href="{{ route('corporation.applications') }}">Applications</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item nav-item" href="{{ route('corporate.contracts') }}">Contracts</a>
-                            <a class="dropdown-item nav-item" href="{{ route('corporate.finances') }}">Finances</a>
-                            <a class="dropdown-item nav-item" href="{{ route('corporate.orders') }}">Orders</a>
+                            <a class="dropdown-item nav-item" href="{{ route('corporation.contracts') }}">Contracts</a>
+                            <a class="dropdown-item nav-item" href="{{ route('corporation.finances') }}">Finances</a>
+                            <a class="dropdown-item nav-item" href="{{ route('corporation.orders') }}">Orders</a>
                         </div>
                     </li>
                 @endesiauth

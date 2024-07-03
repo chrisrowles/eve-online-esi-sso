@@ -19,7 +19,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 pb-4 d-flex align-items-center justify-content-between">
-                        <form action="{{ route('corporate.orders.update') }}" method="POST">
+                        <form action="{{ route('corporation.orders.update') }}" method="POST">
                             @csrf
                             <button class="btn btn-sm btn-secondary" type="submit" id="update_orders">Update History</button>
                         </form>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Controllers\CorporateApplicants;
+namespace Mesa\Http\Controllers\Applications;
 
 use Carbon\Carbon;
 use Illuminate\Routing\Controller as BaseController;

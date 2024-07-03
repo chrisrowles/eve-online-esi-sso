@@ -20,7 +20,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 pb-4 d-flex align-items-center justify-content-between">
-                        <form action="{{ route('corporate.finances.update') }}" method="POST">
+                        <form action="{{ route('corporation.finances.update') }}" method="POST">
                             @csrf
                             <button class="btn btn-sm btn-info" type="submit" id="update_finances"
                                     title="Refresh transaction history from the ESI">

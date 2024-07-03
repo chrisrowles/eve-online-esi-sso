@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Controllers\CorporateManagement;
+namespace Mesa\Http\Controllers\Corporation;
 
 use Carbon\Carbon;
 use Illuminate\Routing\Controller as BaseController;
@@ -35,7 +35,7 @@ class Controller extends BaseController
                 return $next($request);
             }
 
-            return redirect(route('esi.corporate.login'));
+            return redirect(route('esi.corporation.login'));
         });
     }
 }

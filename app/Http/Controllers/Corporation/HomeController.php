@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Controllers\CorporateManagement;
+namespace Mesa\Http\Controllers\Corporation;
 
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;

@@ -40,7 +40,7 @@ class EsiCorporateManagement extends EsiClient
     }
 
     /**
-     * Build corporate ledger.
+     * Build corporation ledger.
      *
      * @param bool $withTransactionJournal
      * @return mixed
@@ -91,7 +91,7 @@ class EsiCorporateManagement extends EsiClient
     }
 
     /**
-     * Fetch corporate divisions.
+     * Fetch corporation divisions.
      *
      * @param null $type
      * @return bool|mixed
@@ -109,7 +109,7 @@ class EsiCorporateManagement extends EsiClient
     }
 
     /**
-     * Fetch corporate balances.
+     * Fetch corporation balances.
      *
      * @return bool|mixed
      */
@@ -121,7 +121,7 @@ class EsiCorporateManagement extends EsiClient
     }
 
     /**
-     * Fetch corporate journal
+     * Fetch corporation journal
      *
      * @param $division
      * @return bool|mixed
@@ -134,7 +134,7 @@ class EsiCorporateManagement extends EsiClient
     }
 
     /**
-     * Fetch corporate transactions
+     * Fetch corporation transactions
      *
      * @param $division
      * @return bool|mixed
@@ -147,7 +147,7 @@ class EsiCorporateManagement extends EsiClient
     }
 
     /**
-     * Fetch corporate order history.
+     * Fetch corporation order history.
      *
      * @return mixed
      */
@@ -275,7 +275,7 @@ class EsiCorporateManagement extends EsiClient
     }
 
     /**
-     * Update corporate contracts.
+     * Update corporation contracts.
      *
      * @return array
      */
@@ -345,7 +345,7 @@ class EsiCorporateManagement extends EsiClient
     }
 
     /**
-     * Update stations from corporate contracts.
+     * Update stations from corporation contracts.
      *
      * @param Contract $contract
      * @return void

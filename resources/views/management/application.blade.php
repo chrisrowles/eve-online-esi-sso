@@ -76,7 +76,7 @@
                             </ul>
                         </div>
                     </div>
-                    <form action="{{ route('corporate.applications.update', ['applicant' => $applicant]) }}" method="POST">
+                    <form action="{{ route('corporation.applications.update', ['applicant' => $applicant]) }}" method="POST">
                         <div class="form-group mt-4 d-flex justify-content-center">
                             <input type="hidden" name="_method" value="PUT">
                             @csrf

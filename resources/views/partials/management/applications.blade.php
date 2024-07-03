@@ -24,7 +24,7 @@
                     </thead>
                     <tbody>
                     @foreach($applications as $application)
-                        <tr onclick="window.location = '{{ route('corporate.applications.view', ['applicant' => $application]) }}'">
+                        <tr onclick="window.location = '{{ route('corporation.applications.view', ['applicant' => $application]) }}'">
                             <td>{{ $application->id }}</td>
                             <td>{{ $application->character_name }}</td>
                             <td>{{ $application->character_corporation }}</td>
