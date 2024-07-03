@@ -46,7 +46,7 @@ class SsoController extends Controller
     public function logout()
     {
         session()->flush();
-        return redirect()->home();
+        return redirect()->route('home');
     }
 
     /**
