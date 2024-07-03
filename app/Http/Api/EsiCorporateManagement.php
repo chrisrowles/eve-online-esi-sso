@@ -8,12 +8,12 @@ use Mesa\Models\Contract;
 use Mesa\Models\OrderHistory;
 use Mesa\Models\WalletJournal;
 use Mesa\Models\WalletTransaction;
-use Mesa\Http\Api\Clients\EsiAuthClient;
+use Mesa\Http\Api\Clients\EsiClient;
 
 /**
  * ESI Corporate Management.
  */
-class EsiCorporateManagement extends EsiAuthClient
+class EsiCorporateManagement extends EsiClient
 {
     /** @var mixed $token */
     private $token;

@@ -2,12 +2,12 @@
 
 namespace Mesa\Http\Api;
 
-use Mesa\Http\Api\Clients\EsiAuthClient;
+use Mesa\Http\Api\Clients\EsiClient;
 
 /**
  * ESI Corporate Services.
  */
-class EsiCorporateServices extends EsiAuthClient
+class EsiCorporateServices extends EsiClient
 {
     /** @var mixed $token */
     private $token;

@@ -6,20 +6,20 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use GuzzleHttp\Exception\GuzzleException;
-use Mesa\Http\Api\Clients\EsiClientInterface;
+use Mesa\Http\Api\Clients\EsiClient;
 use Mesa\Models\Scopes;
 
 class SsoController extends Controller
 {
-    /** @var EsiClientInterface $esi */
-    protected EsiClientInterface $esi;
+    /** @var EsiClient $esi */
+    protected EsiClient $esi;
 
     /**
      * SsoController constructor.
      *
      * @param EsiClientInterface $esi
      */
-    public function __construct(EsiClientInterface $esi)
+    public function __construct(EsiClient $esi)
     {
         $this->esi = $esi;
     }
@@ -31,7 +31,10 @@ class SsoController extends Controller
      */
     public function login()
     {
-        $scopes = Scopes::where('access', 'all')->pluck('name')->toArray();
+        $scopes = Scopes::where('access', 'all')
+            ->pluck('name')
+            ->toArray();
+
         $authorizationURL = $this->esi->getAuthorizationServerURL($scopes);
 
         return redirect($authorizationURL);
@@ -46,7 +49,9 @@ class SsoController extends Controller
     {
         session()->put('character.corporate_member', true);
 
-        $scopes = Scopes::pluck('name')->toArray();
+        $scopes = Scopes::pluck('name')
+            ->toArray();
+
         $authorizationURL = $this->esi->getAuthorizationServerURL($scopes);
 
         return redirect($authorizationURL);
@@ -71,7 +76,10 @@ class SsoController extends Controller
     public function callback(Request $request)
     {
         $auth = $this->esi->callback($request);
-        $expires_on = Carbon::parse(Carbon::now())->addSeconds($auth->expires_in)->toIso8601String();
+
+        $expires_on = Carbon::parse(Carbon::now())
+            ->addSeconds($auth->expires_in)
+            ->toIso8601String();
 
         session()->put('character.access_token', $auth->access_token);
         session()->put('character.expires_on', $expires_on);
@@ -89,6 +97,7 @@ class SsoController extends Controller
     public function verify()
     {
         $character = $this->esi->verify();
+
         session()->put('character.id', $character->CharacterID);
         session()->put('character.name', $character->CharacterName);
         session()->put('character.scopes', explode(" ", $character->Scopes));
@@ -96,6 +105,7 @@ class SsoController extends Controller
             $character->CharacterID.'/portrait?tenant=tranquility&size=128');
 
 
-        return redirect(route('home'))->with('logged_in', true);
+        return redirect(route('home'))
+            ->with('logged_in', true);
     }
 }

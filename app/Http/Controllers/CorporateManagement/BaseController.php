@@ -4,7 +4,7 @@ namespace Mesa\Http\Controllers\CorporateManagement;
 
 use Carbon\Carbon;
 use Illuminate\Routing\Controller;
-use Mesa\Http\Api\Clients\EsiAuthClient;
+use Mesa\Http\Api\Clients\EsiClient;
 use Mesa\Http\Api\EsiCorporateManagement;
 
 
@@ -13,15 +13,15 @@ class BaseController extends Controller
     /** @var EsiCorporateManagement $esi */
     protected EsiCorporateManagement $esi;
 
-    /** @var EsiAuthClient $auth */
-    protected EsiAuthClient $auth;
+    /** @var EsiClient $auth */
+    protected EsiClient $auth;
 
     /**
      * BaseController constructor.
      *
-     * @param EsiAuthClient $auth
+     * @param EsiClient $auth
      */
-    public function __construct(EsiAuthClient $auth)
+    public function __construct(EsiClient $auth)
     {
         $this->auth = $auth;
 
