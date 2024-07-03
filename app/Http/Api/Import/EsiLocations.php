@@ -17,7 +17,7 @@ class EsiLocations extends EsiClient
      */
     public function getData(int $id = null)
     {
-        $endpoint = '/latest/universe/' . $this->type;
+        $endpoint = '/universe/' . $this->type;
         if (!is_null($id))
         {
             $endpoint .= '/' . $id;

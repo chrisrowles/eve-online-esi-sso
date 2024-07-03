@@ -2,7 +2,7 @@
 
 namespace Mesa\Http\Controllers\CorporateManagement;
 
-use Cache;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -22,12 +22,12 @@ class MailController extends BaseController
         if (Cache::has('evemail_' . $this->esi->id)) {
             $evemail = Cache::get('evemail_' . $this->esi->id);
         } else {
-            $evemail = $this->esi->fetch('/latest/characters/' . $this->esi->id . '/mail');
+            $evemail = $this->esi->fetch('/characters/' . $this->esi->id . '/mail');
             foreach ($evemail as $mail)
             {
-                $mail->from = $this->esi->fetch('/latest/characters/' . $mail->from)->name ?? $mail->from;
+                $mail->from = $this->esi->fetch('/characters/' . $mail->from)->name ?? $mail->from;
 
-                $mail->to = $this->esi->fetch('/latest/characters/' . $mail->recipients[0]->recipient_id)->name
+                $mail->to = $this->esi->fetch('/characters/' . $mail->recipients[0]->recipient_id)->name
                     ?? $mail->recipients[0]->recipient_id;
 
                 $mail->is_read = $mail->is_read ?? false;
@@ -58,7 +58,7 @@ class MailController extends BaseController
      */
     public function view(string $id, Request $request)
     {
-        $mail = $this->esi->fetch('/latest/characters/' . $this->esi->id . '/mail/' . $id);
+        $mail = $this->esi->fetch('/characters/' . $this->esi->id . '/mail/' . $id);
 
         if (!$mail)
         {
@@ -66,9 +66,9 @@ class MailController extends BaseController
             return redirect()->back();
         }
 
-        $mail->from = $this->esi->fetch('/latest/characters/' . $mail->from)->name ?? $mail->from;
+        $mail->from = $this->esi->fetch('/characters/' . $mail->from)->name ?? $mail->from;
 
-        $mail->to = $this->esi->fetch('/latest/characters/' . $mail->recipients[0]->recipient_id)->name
+        $mail->to = $this->esi->fetch('/characters/' . $mail->recipients[0]->recipient_id)->name
             ?? $mail->recipients[0]->recipient_id;
 
         return view('management.mail', compact('mail'));

@@ -9,17 +9,12 @@ use Mesa\Http\Api\EsiClient;
  */
 class EsiCorporateApplicant extends EsiClient
 {
-    /** @var mixed $token */
-    private $token;
 
     /** @var mixed $id */
     public $id;
 
     /** @var mixed $name */
     private $name;
-
-    /** @var string $base */
-    protected string $base = 'https://esi.evetech.net';
 
     /** @var array $data */
     protected array $data = [];
@@ -31,7 +26,8 @@ class EsiCorporateApplicant extends EsiClient
      */
     public function __construct($character)
     {
-        $this->token = $character['access_token'];
+        $this->setURL(config('eve.esi.api_uri'));
+
         $this->id = $character['id'];
         $this->name = $character['name'];
 
@@ -52,7 +48,7 @@ class EsiCorporateApplicant extends EsiClient
         {
             foreach ($corpHistory as $corp)
             {
-                $information = $this->fetch('/latest/corporations/' . $corp->corporation_id);
+                $information = $this->fetch('/corporations/' . $corp->corporation_id);
 
                 if ($information)
                 {
@@ -73,7 +69,7 @@ class EsiCorporateApplicant extends EsiClient
      */
     private function getCorporationHistory()
     {
-        return $this->fetch('/latest/characters/'.$this->id.'/corporationhistory/');
+        return $this->fetch('/characters/'.$this->id.'/corporationhistory/');
     }
 
 
@@ -84,6 +80,6 @@ class EsiCorporateApplicant extends EsiClient
      */
     private function getContacts()
     {
-        return $this->fetch('/latest/characters/'.$this->id.'/contacts/');
+        return $this->fetch('/characters/'.$this->id.'/contacts/');
     }
 }

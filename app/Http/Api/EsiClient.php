@@ -20,7 +20,10 @@ class EsiClient implements EsiClientInterface
     protected Client $client;
 
     /** @var string $base */
-    protected string $base = 'https://login.eveonline.com';
+    protected string $url;
+
+    /** @var string $version */
+    protected string $version;
 
     /** @var string $code */
     protected string $code;
@@ -40,13 +43,25 @@ class EsiClient implements EsiClientInterface
     {
         $this->clientId = config('eve.esi.client_id');
         $this->secretKey = config('eve.esi.secret_key');
-
         $this->client = new Client([
-            'base_uri' => $this->base
+            'base_uri' => $this->url ?? config('eve.esi.login_uri') 
         ]);
+
+        $this->version = config('eve.esi.version');
 
         $server = $server ?? config('eve.esi.server');
         $this->server = '?datasource=' . $server;
+    }
+
+    /**
+     * Set the base URL for the client
+     * 
+     * @param string $url
+     * @return void
+     */
+    public function setURL(string $url)
+    {
+        $this->url = $url;
     }
 
     /**
@@ -68,6 +83,7 @@ class EsiClient implements EsiClientInterface
                 ];
             }
 
+            $endpoint = '/'. $this->version . $endpoint;
             $response = $this->client->request($method, $endpoint, $options);
         } catch (GuzzleException $e) {
             return false;
@@ -90,7 +106,7 @@ class EsiClient implements EsiClientInterface
      */
     public function getAuthorizationServerURL(array $scopes = [])
     {
-        $url = $this->base . '/v2/oauth/authorize?response_type=code';
+        $url = config('eve.esi.login_uri') . '/v2/oauth/authorize?response_type=code';
         $url .= '&redirect_uri=' . urlencode(route('esi.sso.callback'));
         $url .= '&client_id=' . $this->clientId;
         $url .= !empty($scopes) ? $this->buildScopeQueryString($scopes) : '';

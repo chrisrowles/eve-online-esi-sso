@@ -15,17 +15,11 @@ use Mesa\Http\Api\EsiClient;
  */
 class EsiCorporateManagement extends EsiClient
 {
-    /** @var mixed $token */
-    private $token;
-
     /** @var mixed $id */
     public $id;
 
     /** @var mixed $name */
     public $name;
-
-    /** @var string $base */
-    protected string $base = 'https://esi.evetech.net';
 
     /** @var array $data */
     protected array $data = [];
@@ -37,7 +31,8 @@ class EsiCorporateManagement extends EsiClient
      */
     public function __construct(array $character)
     {
-        $this->token = $character['access_token'];
+        $this->setURL(config('eve.esi.api_uri'));
+
         $this->id = $character['id'];
         $this->name = $character['name'];
 
@@ -103,7 +98,7 @@ class EsiCorporateManagement extends EsiClient
      */
     public function fetchCorporateDivisions($type = null)
     {
-        $divisions = $this->fetch('/latest/corporations/' . config('eve.esi.corporation') . '/divisions');
+        $divisions = $this->fetch('/corporations/' . config('eve.esi.corporation') . '/divisions');
 
         if (!is_null($type))
         {
@@ -120,7 +115,7 @@ class EsiCorporateManagement extends EsiClient
      */
     public function fetchCorporateBalances()
     {
-        return $this->fetch('/latest/corporations/'
+        return $this->fetch('/corporations/'
             . config('eve.esi.corporation')
             . '/wallets');
     }
@@ -133,7 +128,7 @@ class EsiCorporateManagement extends EsiClient
      */
     public function fetchCorporateJournal($division)
     {
-        return $this->fetch('/latest/corporations/'
+        return $this->fetch('/corporations/'
             . config('eve.esi.corporation')
             . '/wallets/' . $division . '/journal');
     }
@@ -146,7 +141,7 @@ class EsiCorporateManagement extends EsiClient
      */
     public function fetchCorporateTransactions($division)
     {
-        return $this->fetch('/latest/corporations/'
+        return $this->fetch('/corporations/'
             . config('eve.esi.corporation')
             . '/wallets/' . $division . '/transactions');
     }
@@ -158,7 +153,7 @@ class EsiCorporateManagement extends EsiClient
      */
     public function fetchCorporateOrderHistory()
     {
-        return $this->fetch('/latest/corporations/'
+        return $this->fetch('/corporations/'
             . config('eve.esi.corporation')
             . '/orders/history');
     }
@@ -198,7 +193,7 @@ class EsiCorporateManagement extends EsiClient
                     $model->price = $order->price;
                     $model->region_id = $order->region_id;
                     $model->state = $order->state;
-                    $model->type_id = $this->fetch('/latest/universe/types/'.$order->type_id)->name ?? $order->type_id;
+                    $model->type_id = $this->fetch('/universe/types/'.$order->type_id)->name ?? $order->type_id;
                     $model->volume_min = $order->min_volume ?? 0;
                     $model->volume_remain = $order->volume_remain ?? 0;
                     $model->volume_total = $order->volume_total ?? 0;
@@ -286,7 +281,7 @@ class EsiCorporateManagement extends EsiClient
      */
     public function updateDataAccessContracts(): array
     {
-        $contracts = $this->fetch('/latest/corporations/' . config('eve.esi.corporation') . '/contracts');
+        $contracts = $this->fetch('/corporations/' . config('eve.esi.corporation') . '/contracts');
         $count = 0;
         $total = 0;
         $errors = 0;
@@ -365,12 +360,12 @@ class EsiCorporateManagement extends EsiClient
             $stations = [];
             if (is_32bit_signed_int($start_id))
             {
-                $stations[] = $this->fetch('/latest/universe/stations/' . $start_id);
+                $stations[] = $this->fetch('/universe/stations/' . $start_id);
             }
 
             if (is_32bit_signed_int($end_id))
             {
-                $stations[] = $this->fetch('/latest/universe/stations/' . $end_id);
+                $stations[] = $this->fetch('/universe/stations/' . $end_id);
             }
 
             foreach ($stations as $station)
