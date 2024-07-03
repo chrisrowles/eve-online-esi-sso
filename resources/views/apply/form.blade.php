@@ -17,50 +17,34 @@
                 <div class="col-md-12">
                     <div class="card bg-dark filter">
                         <div class="card-body">
-                            <form class="form-horizontal" method="post" action="{{ route('apply.submit') }}">
+                            <form method="post" action="{{ route('apply.submit') }}">
                                 @csrf
-                                <fieldset>
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="length_playing">How long have you been playing EVE for?</label>
-                                        <div class="col-md-8">
-                                            <textarea class="form-control" id="length_playing" name="length_playing"></textarea>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="length_playing">How long have you been playing EVE for?</label>
+                                    <textarea class="form-control" id="length_playing" name="length_playing"></textarea>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="favourite_activities">What are your favourite activities in EVE?</label>
-                                        <div class="col-md-8">
-                                            <textarea class="form-control" id="favourite_activities" name="favourite_activities"></textarea>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="favourite_activities">What are your favourite activities in EVE?</label>
+                                    <textarea class="form-control" id="favourite_activities" name="favourite_activities"></textarea>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="reason_joining">Why do you want to join Allsides?</label>
-                                        <div class="col-md-8">
-                                            <textarea class="form-control" id="reason_joining" name="reason_joining"></textarea>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="reason_joining">Why do you want to join Allsides?</label>
+                                    <textarea class="form-control" id="reason_joining" name="reason_joining"></textarea>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="real_life">Share a bit about yourself, such as what you do for a living, hobbies etc. (optional)</label>
-                                        <div class="col-md-8">
-                                            <textarea class="form-control" id="real_life" name="real_life"></textarea>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="real_life">Share a bit about yourself, such as what you do for a living, hobbies etc. (optional)</label>
+                                    <textarea class="form-control" id="real_life" name="real_life"></textarea>
+                                </div>
 
-                                    <div class="form-group">
-                                        <label class="col-md-4 control-label" for="haiku">Write a haiku</label>
-                                        <div class="col-md-8">
-                                            <textarea class="form-control" id="haiku" name="haiku"></textarea>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="haiku">Write a haiku</label>
+                                    <textarea class="form-control" id="haiku" name="haiku"></textarea>
+                                </div>
 
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <button class="btn btn-outline-light">Submit Application</button>
-                                        </div>
-                                    </div>
-                                </fieldset>
+                                <button class="btn btn-outline-light">Submit Application</button>
                             </form>
                         </div>
                     </div>
@@ -71,4 +55,5 @@
 @endsection
 
 @section('additional_scripts')
+    @parent
 @endsection

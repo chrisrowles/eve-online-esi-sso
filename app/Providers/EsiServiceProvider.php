@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 
 use Mesa\Http\Api\EsiClient;
 use Mesa\Http\Api\EsiClientInterface;
+use Mesa\Http\Api\Import\EsiLocations;
 
 class EsiServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,11 @@ class EsiServiceProvider extends ServiceProvider
         $this->app->bind(
             EsiClientInterface::class,
             EsiClient::class
+        );
+
+        $this->app->bind(
+            'esi.locations',
+            EsiLocations::class
         );
 
         Blade::if('esiauth', function () {

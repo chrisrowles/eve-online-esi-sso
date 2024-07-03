@@ -8,7 +8,8 @@
         <div class="container py-2">
             <div class="row mt-3">
                 <div class="col-12">
-                    <h1>{{ config('app.name') }} Contract Management</h1>
+                    <h1 class="mb-0">{{ config('app.name') }}</h1>
+                    <small class="text-muted">Contracts Management</small>
                 </div>
             </div>
             <hr>

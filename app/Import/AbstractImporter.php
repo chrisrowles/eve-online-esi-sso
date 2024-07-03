@@ -4,7 +4,7 @@ namespace Mesa\Import;
 
 use Exception;
 
-abstract class AbstractImporter implements ImporterInterface
+abstract class AbstractImporter
 {
     /**
      * @param string $type

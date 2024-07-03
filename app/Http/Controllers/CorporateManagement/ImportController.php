@@ -20,12 +20,13 @@ class ImportController
      */
     public function import(string $type, string $subtype): JsonResponse
     {
-        $class  = $this->namespace . ucfirst($type);
+        $class  = $this->namespace . ucfirst($type);;
         if (!class_exists($class)) {
             throw new Exception("Import class $type not found");
         }
 
         $method = strtolower($subtype);
+        
         if(!method_exists($class, $subtype)) {
             throw new Exception("Import method $subtype does not exist for class $type");
         }

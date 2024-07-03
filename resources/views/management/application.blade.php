@@ -83,7 +83,7 @@
                             <label for="reject" class="sr-only">Reject</label>
                             <input type="submit" name="status" id="reject" class="btn w-25 btn-danger" value="Reject">
                             <label for="approve" class="sr-only">Approve</label>
-                            <input type="submit" name="status" id="approve" class="btn w-25 ml-3 btn-success" value="Approve">
+                            <input type="submit" name="status" id="approve" class="btn w-25 ms-3 btn-success" value="Approve">
                         </div>
                     </form>
                 </div>

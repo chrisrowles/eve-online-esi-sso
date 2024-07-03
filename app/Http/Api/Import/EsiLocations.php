@@ -10,6 +10,15 @@ class EsiLocations extends EsiClient
     protected string $type;
 
     /**
+     * EsiLocations constructor
+     */
+    public function __construct()
+    {
+        $this->setURL(config('eve.esi.api_uri'));
+        parent::__construct();
+    }
+
+    /**
      * Fetch data from the ESI.
      *
      * @param int|null $id

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-2">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('home') }}">
             SAKAGAMI
@@ -41,7 +41,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="esi_auth_menu" role="button"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ session('character.name') }}
-                            <img alt="portrait" class="ml-2" src="{{ session('character.portrait') }}" width="36">
+                            <img alt="portrait" class="ms-2" src="{{ session('character.portrait') }}" width="36">
                         </a>
                         <div class="dropdown-menu" aria-labelledby="esi_auth_menu">
                             <a class="dropdown-item nav-item" href="{{ route('esi.sso.logout') }}">

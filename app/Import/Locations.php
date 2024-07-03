@@ -22,7 +22,7 @@ class Locations extends AbstractImporter
      */
     public function __construct()
     {
-        $this->esi = new EsiLocations();
+        $this->esi = app('esi.locations');
     }
 
     /**
@@ -42,7 +42,7 @@ class Locations extends AbstractImporter
         {
             foreach ($regions as $id)
             {
-                if (Region::where('region_id', $id)->first() === null)
+                if (! Region::whereRegionId($id)->exists())
                 {
                     $data = $this->esi->getData($id);
 
@@ -87,7 +87,7 @@ class Locations extends AbstractImporter
         {
             foreach ($constellations as $id)
             {
-                if (Constellation::where('constellation_id', $id)->first() === null)
+                if (! Constellation::whereConstellationId($id)->exists())
                 {
                     $data = $this->esi->getData($id);
 
@@ -132,7 +132,7 @@ class Locations extends AbstractImporter
         {
             foreach ($systems as $id)
             {
-                if (System::where('system_id', $id)->first() === null)
+                if (! System::whereSystemId($id)->exists())
                 {
                     $data = $this->esi->getData($id);
 
