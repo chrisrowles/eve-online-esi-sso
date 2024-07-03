@@ -11,7 +11,7 @@
 </head>
 <body>
 @include('partials.navigation.navbar')
-<main>
+<main class="bg">
     @auth
     @endauth
     @yield('content')
@@ -19,7 +19,7 @@
 </main>
 <footer class="footer py-2">
     <div class="container text-center">
-        <span class="text-muted">Copyright © {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved</span>
+        <span class="text-white">Copyright © {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved</span>
     </div>
 </footer>
 <script src="{{ asset('js/app.js') }}"></script>

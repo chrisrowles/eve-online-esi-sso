@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white py-2">
+<nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-none py-2">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('home') }}">
             SAKAGAMI

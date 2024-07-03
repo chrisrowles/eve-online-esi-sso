@@ -15,9 +15,6 @@
             </div>
             <hr>
             @include('partials.management.balances')
-            @include('partials.management.applications')
-            @include('partials.management.contracts')
-            <div class="row mt-3"></div>
         </div>
     </div>
 @endsection
