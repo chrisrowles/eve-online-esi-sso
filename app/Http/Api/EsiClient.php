@@ -123,19 +123,10 @@ class EsiClient implements EsiClientInterface
      *
      * @throws GuzzleException
      */
-    public function callback(Request $request)
+    public function issueAccessToken(Request $request)
     {
         $this->code = $request->get('code');
-        return $this->login();
-    }
 
-    /**
-     * Post login to receive access and refresh tokens.
-     *
-     * @throws GuzzleException
-     */
-    public function login()
-    {
         $response = $this->client->request('POST', '/v2/oauth/token', [
             'auth' => [
                 $this->clientId,

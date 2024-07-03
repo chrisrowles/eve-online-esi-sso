@@ -25,9 +25,5 @@ class EsiServiceProvider extends ServiceProvider
         Blade::if('esiauth', function () {
             return session()->has('character');
         });
-
-        Blade::if('esicorporate', function () {
-            return session()->has('character.corporate_member');
-        });
     }
 }

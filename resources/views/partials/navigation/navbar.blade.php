@@ -15,7 +15,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('apply') }}"><i class="fas fa-plus"></i> Apply to Join</a>
             </li>
-            @esicorporate
+            @esiauth
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="corporate_management" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,7 +32,7 @@
                         <a class="dropdown-item nav-item" href="{{ route('corporate.orders') }}">Orders</a>
                     </div>
                 </li>
-            @endesicorporate
+            @endesiauth
         </ul>
         <ul class="navbar-nav ml-auto">
             @esiauth

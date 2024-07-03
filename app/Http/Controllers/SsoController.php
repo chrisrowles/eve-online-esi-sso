@@ -31,8 +31,6 @@ class SsoController extends Controller
      */
     public function login()
     {
-        session()->put('character.corporate_member', true);
-
         $scopes = Scopes::where('access', 'all')
             ->pluck('name')
             ->toArray();
@@ -60,7 +58,7 @@ class SsoController extends Controller
      */
     public function callback(Request $request)
     {
-        $auth = $this->esi->callback($request);
+        $auth = $this->esi->issueAccessToken($request);
 
         $expires_on = Carbon::parse(Carbon::now())
             ->addSeconds($auth->expires_in)
