@@ -29,7 +29,7 @@
                         </form>
                     </div>
                 </div>
-                <table id="corporate_finances" class="table table-sm table-striped table-hover">
+                <table id="journal" class="table table-sm table-striped table-hover">
                     <thead>
                     <tr>
                         <th scope="col">ESI ID</th>
@@ -66,4 +66,9 @@
 
 @section('additional_scripts')
     @parent
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dataTable('#journal');
+        });
+    </script>
 @endsection

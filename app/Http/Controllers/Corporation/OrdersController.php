@@ -24,7 +24,7 @@ class OrdersController extends Controller
             $finances['total'] += $division->balance;
         }
 
-        return view('management.order-history', compact('finances'));
+        return view('corporation.order-history', compact('finances'));
     }
 
     /**

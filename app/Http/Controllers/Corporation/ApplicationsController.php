@@ -17,7 +17,7 @@ class ApplicationsController extends Controller
     {
         $applications = Application::all();
 
-        return view('management.applications', compact('applications'));
+        return view('corporation.applications', compact('applications'));
     }
 
     /**
@@ -30,7 +30,7 @@ class ApplicationsController extends Controller
     {
         $applicant->character_raw_data = json_decode($applicant->character_raw_data);
 
-        return view('management.application', compact('applicant'));
+        return view('corporation.application', compact('applicant'));
     }
 
     /**

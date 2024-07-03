@@ -10,7 +10,7 @@
     @yield('additional_styles')
 </head>
 <body>
-@include('partials.navigation.navbar')
+@include('partials.navbar')
 <main class="bg">
     @auth
     @endauth

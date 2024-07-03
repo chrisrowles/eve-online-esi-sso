@@ -12,8 +12,8 @@
                 </div>
             </div>
             <hr>
-            @include('partials.management.inbox')
-            @include('partials.management.outbox')
+            @include('partials.corporation.inbox')
+            @include('partials.corporation.outbox')
         </div>
     </div>
 @endsection

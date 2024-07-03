@@ -14,7 +14,9 @@
                 </div>
             </div>
             <hr>
-            @include('partials.management.balances')
+            @include('partials.corporation.balances')
+            @include('partials.corporation.applications')
+            @include('partials.corporation.journal')
         </div>
     </div>
 @endsection

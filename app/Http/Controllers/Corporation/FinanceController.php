@@ -24,7 +24,7 @@ class FinanceController extends Controller
             $finances['total'] += $division->balance;
         }
 
-        return view('management.finances', compact('finances'));
+        return view('corporation.finances', compact('finances'));
     }
 
     /**

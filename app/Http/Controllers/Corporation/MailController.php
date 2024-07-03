@@ -45,7 +45,7 @@ class MailController extends Controller
             }
         }
 
-        return view('management.mailbox', compact('emails'));
+        return view('corporation.mailbox', compact('emails'));
     }
 
     /**
@@ -67,6 +67,6 @@ class MailController extends Controller
         $mail->to = $this->esi->fetch('/characters/' . $mail->recipients[0]->recipient_id)->name
             ?? $mail->recipients[0]->recipient_id;
 
-        return view('management.mail', compact('mail'));
+        return view('corporation.mail', compact('mail'));
     }
 }

@@ -6,6 +6,7 @@
 @import 'variables';
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import '~simple-datatables/dist/style.css';
 
 body, html {
     height: 100%;
@@ -19,7 +20,6 @@ body {
 
 main {
     flex: 1;
-    overflow-y: hidden;
 }
 
 nav {

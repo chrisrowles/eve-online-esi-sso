@@ -9,9 +9,9 @@
 </div>
 <div class="row mt-3">
     <div class="col-12">
-        <div class="card p-2 bg-transparent filter shadow border-0">
+        <div class="card p-2 filter bg-dark text-white shadow border-0">
             <div class="card-body">
-                <table id="corporate_applications" class="table table-sm bg-transparent">
+                <table id="applications" class="table table-sm bg-transparent">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -42,4 +42,9 @@
 
 @section('additional_scripts')
     @parent
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dataTable('#applications');
+        });
+    </script>
 @endsection

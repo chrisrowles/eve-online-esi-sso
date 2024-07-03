@@ -25,7 +25,7 @@
                         </form>
                     </div>
                 </div>
-                <table id="corporate_orders" class="table table-sm table-striped">
+                <table id="orders" class="table table-sm table-striped">
                     <thead>
                     <tr>
                         <th scope="col">ESI ID</th>
@@ -58,4 +58,9 @@
 
 @section('additional_scripts')
     @parent
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dataTable('#orders');
+        });
+    </script>
 @endsection

@@ -17,7 +17,7 @@ class ContractsController extends Controller
     {
         $contracts = Contract::where('type', 'courier')->get();
 
-        return view('management.contracts', compact('contracts'));
+        return view('corporation.contracts', compact('contracts'));
     }
 
     /**

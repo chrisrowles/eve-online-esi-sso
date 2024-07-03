@@ -11,7 +11,7 @@
     <div class="col-12">
         <div class="card p-2 bg-white shadow border-0">
             <div class="card-body">
-                <table id="evemail_outbox" class="table table-sm table-hover">
+                <table id="outbox" class="table table-sm table-hover">
                     <thead>
                     <tr>
                         <th scope="col">ESI ID</th>
@@ -40,4 +40,9 @@
 
 @section('additional_scripts')
     @parent
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dataTable('#outbox');
+        });
+    </script>
 @endsection

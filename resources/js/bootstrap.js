@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2';
+import { DataTable } from 'simple-datatables';
 import 'bootstrap';
 import './fontawesome';
 
@@ -14,3 +15,8 @@ window.Toast = Swal.mixin({
         toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
 });
+
+window.dataTable = (selector, options = { searchable: false }) => {
+    const elem = document.querySelector(selector);
+    new DataTable(elem, options);
+}

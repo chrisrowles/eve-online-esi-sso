@@ -29,7 +29,7 @@
                         </form>
                     </div>
                 </div>
-                <table id="corporate_contracts" class="table table-sm">
+                <table id="eve-contracts" class="table table-sm">
                     <thead>
                     <tr>
                         <th scope="col">ESI ID</th>
@@ -67,4 +67,9 @@
 
 @section('additional_scripts')
     @parent
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            window.dataTable('#eve-contracts');
+        });
+    </script>
 @endsection
