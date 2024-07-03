@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Api\Clients;
+namespace Mesa\Http\Api;
 
 use Carbon\Carbon;
 use GuzzleHttp\Client;

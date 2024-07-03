@@ -2,7 +2,7 @@
 
 namespace Mesa\Http\Api;
 
-use Mesa\Http\Api\Clients\EsiClient;
+use Mesa\Http\Api\EsiClient;
 
 /**
  * ESI Corporate Services.

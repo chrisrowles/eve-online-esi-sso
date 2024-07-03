@@ -4,7 +4,7 @@ namespace Mesa\Http\Controllers\CorporateManagement;
 
 use Carbon\Carbon;
 use Illuminate\Routing\Controller;
-use Mesa\Http\Api\Clients\EsiClient;
+use Mesa\Http\Api\EsiClient;
 use Mesa\Http\Api\EsiCorporateManagement;
 
 

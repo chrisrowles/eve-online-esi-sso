@@ -8,7 +8,7 @@ use Mesa\Models\Contract;
 use Mesa\Models\OrderHistory;
 use Mesa\Models\WalletJournal;
 use Mesa\Models\WalletTransaction;
-use Mesa\Http\Api\Clients\EsiClient;
+use Mesa\Http\Api\EsiClient;
 
 /**
  * ESI Corporate Management.

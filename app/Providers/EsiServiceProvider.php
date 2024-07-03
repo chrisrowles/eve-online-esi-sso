@@ -5,8 +5,8 @@ namespace Mesa\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
-use Mesa\Http\Api\Clients\EsiClient;
-use Mesa\Http\Api\Clients\EsiClientInterface;
+use Mesa\Http\Api\EsiClient;
+use Mesa\Http\Api\EsiClientInterface;
 
 class EsiServiceProvider extends ServiceProvider
 {

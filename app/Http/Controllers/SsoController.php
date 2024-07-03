@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use GuzzleHttp\Exception\GuzzleException;
-use Mesa\Http\Api\Clients\EsiClient;
+use Mesa\Http\Api\EsiClient;
 use Mesa\Models\Scopes;
 
 class SsoController extends Controller

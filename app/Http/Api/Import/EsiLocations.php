@@ -2,7 +2,7 @@
 
 namespace Mesa\Http\Api\Import;
 
-use Mesa\Http\Api\Clients\EsiClient;
+use Mesa\Http\Api\EsiClient;
 
 class EsiLocations extends EsiClient
 {
