@@ -31,25 +31,10 @@ class SsoController extends Controller
      */
     public function login()
     {
-        $scopes = Scopes::where('access', 'all')
-            ->pluck('name')
-            ->toArray();
-
-        $authorizationURL = $this->esi->getAuthorizationServerURL($scopes);
-
-        return redirect($authorizationURL);
-    }
-
-    /**
-     * perform corporate SSO login.
-     *
-     * @return mixed
-     */
-    public function corporateLogin()
-    {
         session()->put('character.corporate_member', true);
 
-        $scopes = Scopes::pluck('name')
+        $scopes = Scopes::where('access', 'all')
+            ->pluck('name')
             ->toArray();
 
         $authorizationURL = $this->esi->getAuthorizationServerURL($scopes);
@@ -96,7 +81,7 @@ class SsoController extends Controller
      */
     public function verify()
     {
-        $character = $this->esi->verify();
+        $character = $this->esi->verifyAuthorization();
 
         session()->put('character.id', $character->CharacterID);
         session()->put('character.name', $character->CharacterName);

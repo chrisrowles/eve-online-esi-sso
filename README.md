@@ -14,7 +14,7 @@
 
 #### Authorization Flow
 
-1. The user navigates to `http://mesa-orbital.local/eveauth/login`, which calls the `SsoController`'s `login()`
+1. The user navigates to `http://localhost/auth/login`, which calls the `SsoController`'s `login()`
 method to redirect the user to `https://login.eveonline.com/v2/oauth/authorize` with required url-encoded parameters:
     - response_type=`code`
     - redirect_uri=`<app-callback-url>`

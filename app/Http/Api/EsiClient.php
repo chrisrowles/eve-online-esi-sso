@@ -109,7 +109,7 @@ class EsiClient implements EsiClientInterface
         $url = config('eve.esi.login_uri') . '/v2/oauth/authorize?response_type=code';
         $url .= '&redirect_uri=' . urlencode(route('esi.sso.callback'));
         $url .= '&client_id=' . $this->clientId;
-        $url .= !empty($scopes) ? $this->buildScopeQueryString($scopes) : '';
+        $url .= !empty($scopes) ? $this->attachAuthorizationScopes($scopes) : '';
         $url .= '&state=' . Str::random();
 
         return $url;
@@ -184,10 +184,9 @@ class EsiClient implements EsiClientInterface
      * @return bool|mixed
      * @throws GuzzleException
      */
-    public function verify()
+    public function verifyAuthorization()
     {
-        if (!session('character.access_token'))
-        {
+        if (!session('character.access_token')) {
             return false;
         }
 
@@ -206,13 +205,12 @@ class EsiClient implements EsiClientInterface
      * @param array $scopes
      * @return string
      */
-    private function buildScopeQueryString(array $scopes)
+    private function attachAuthorizationScopes(array $scopes)
     {
         $query = '&scope=';
         $count = count($scopes);
         $delim = '%20';
-        foreach ($scopes as $name => $key)
-        {
+        foreach ($scopes as $name => $key) {
             if (--$count <= 0) $delim = null;
             $query .= $key . $delim;
         }

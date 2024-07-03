@@ -370,18 +370,15 @@ class EsiCorporateManagement extends EsiClient
 
             foreach ($stations as $station)
             {
-                if ($station)
-                {
-                    if (Station::where('station_id', $station->station_id)->first() === null)
-                    {
+                if ($station) {
+                    if (! Station::whereStationId($station->station_id)->exists()) {
                         $model = new Station();
                         $model->system_id = $station->system_id;
                         $model->station_id = $station->station_id;
                         $model->name = $station->name;
                         $model->max_dock_ship_volume = $station->max_dockable_ship_volume;
 
-                        if (!$model->save())
-                        {
+                        if (!$model->save()) {
                             Log::error('Failed to import station ' . $station->station_id);
                         }
                     }

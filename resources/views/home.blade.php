@@ -60,9 +60,6 @@
                     to determine how much you need to pay and follow the instructions on the page. Capsuleers currently
                     get <strong>50%</strong> off for a limited period!
                 </p>
-                <p>
-                    <a class="btn btn-outline-dark" href="{{ route('haulage') }}">Get a quote »</a>
-                </p>
             </div>
             <div class="col-md-4">
                 <h2>

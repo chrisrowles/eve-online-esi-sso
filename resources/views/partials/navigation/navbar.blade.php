@@ -13,9 +13,6 @@
                 <a class="nav-link" href="{{ route('home') }}"> <i class="fas fa-home"></i> Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('haulage') }}"><i class="fas fa-rocket"></i> Haulage Quote</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{{ route('apply') }}"><i class="fas fa-plus"></i> Apply to Join</a>
             </li>
             @esicorporate

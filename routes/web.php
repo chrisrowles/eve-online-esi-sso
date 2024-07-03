@@ -14,11 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/services/haulage', [\Mesa\Http\Controllers\StaticPageController::class, 'haulage'])->name('haulage');
 
-Route::group(['prefix' => 'eveauth'], function() {
+Route::group(['prefix' => 'auth'], function() {
     Route::get('login', [\Mesa\Http\Controllers\SsoController::class, 'login'])->name('esi.sso.login');
-    Route::get('corporate/login', [\Mesa\Http\Controllers\SsoController::class, 'corporateLogin'])->name('esi.corporate.login');
     Route::get('callback', [\Mesa\Http\Controllers\SsoController::class, 'callback'])->name('esi.sso.callback');
     Route::get('logout', [\Mesa\Http\Controllers\SsoController::class, 'logout'])->name('esi.sso.logout');
 });

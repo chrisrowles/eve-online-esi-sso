@@ -44,7 +44,6 @@
             </div>
             <div class="col-6">
                 <button class="btn btn-outline-light" id="calculate" type="button">Calculate</button>
-                <a class="ml-2 text-light" href="{{ route('haulage') }}"><i class="fas fa-question-circle"></i> Instructions</a>
             </div>
         </div>
     </div>
