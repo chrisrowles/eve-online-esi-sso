@@ -1,11 +1,12 @@
 <?php
 
-namespace Mesa\Http\Controllers\CorporateManagement;
+namespace Mesa\Http\Controllers;
 
 use Exception;
+use Illuminate\Routing\Controller;
 use Illuminate\Http\JsonResponse;
 
-class ImportController
+class ImportController extends Controller
 {
     /** @var string */
     protected string $namespace = '\\Mesa\\Import\\';

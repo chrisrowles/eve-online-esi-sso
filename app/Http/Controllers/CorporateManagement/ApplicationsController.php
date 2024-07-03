@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Mesa\Models\Application;
 
-class ApplicationsController extends BaseController
+class ApplicationsController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|Factory|View

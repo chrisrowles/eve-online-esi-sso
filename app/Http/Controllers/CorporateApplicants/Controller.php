@@ -1,25 +1,24 @@
 <?php
 
-namespace Mesa\Http\Controllers\CorporateManagement;
+namespace Mesa\Http\Controllers\CorporateApplicants;
 
 use Carbon\Carbon;
-use Illuminate\Routing\Controller;
+use Illuminate\Routing\Controller as BaseController;
 use Mesa\Http\Api\EsiClient;
-use Mesa\Http\Api\EsiCorporateManagement;
+use Mesa\Http\Api\EsiCorporateApplicant;
 
-
-class BaseController extends Controller
+class Controller extends BaseController
 {
-    /** @var EsiCorporateManagement $esi */
-    protected EsiCorporateManagement $esi;
+    /** @var EsiCorporateApplicant $aplicant */
+    protected EsiCorporateApplicant $esi;
 
-    /** @var EsiClient $auth */
+    /** @var EsiClientInterface $auth */
     protected EsiClient $auth;
 
     /**
      * BaseController constructor.
      *
-     * @param EsiClient $auth
+     * @param EsiClientInterface $auth
      */
     public function __construct(EsiClient $auth)
     {
@@ -27,7 +26,7 @@ class BaseController extends Controller
 
         $this->middleware(function($request, $next) {
             if (session('character')) {
-                $this->esi = new EsiCorporateManagement(session('character'));
+                $this->esi = new EsiCorporateApplicant(session('character'));
                 if (Carbon::parse(session('character.expires_on'))->isPast()) {
                     $this->auth->refreshAccessToken();
                 }
@@ -35,7 +34,7 @@ class BaseController extends Controller
                 return $next($request);
             }
 
-            return redirect(route('esi.corporate.login'));
+            return redirect(route('esi.sso.login'));
         });
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
-class MailController extends BaseController
+class MailController extends Controller
 {
     /**
      * Fetch EVEmail from the ESI and add it to the cache...

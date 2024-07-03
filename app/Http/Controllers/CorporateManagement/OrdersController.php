@@ -5,11 +5,10 @@ namespace Mesa\Http\Controllers\CorporateManagement;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Mesa\Models\OrderHistory;
 
-class OrdersController extends BaseController
+class OrdersController extends Controller
 {
     /**
      * @return Application|Factory|View

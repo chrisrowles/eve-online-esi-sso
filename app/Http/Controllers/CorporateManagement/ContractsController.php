@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Mesa\Models\Contract;
 
-class ContractsController extends BaseController
+class ContractsController extends Controller
 {
     /**
      * @return Application|Factory|View

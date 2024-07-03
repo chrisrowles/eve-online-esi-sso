@@ -41,4 +41,4 @@ Route::middleware('esi')->prefix('corporate')->group(function() {
     Route::post('orders', [\Mesa\Http\Controllers\CorporateManagement\OrdersController::class, 'updateOrderHistoryFromEsi'])->name('corporate.orders.update');
 });
 
-Route::post('/import/{type}/{subtype}', [\Mesa\Http\Controllers\CorporateManagement\ImportController::class, 'import'])->name('import');
+Route::post('/import/{type}/{subtype}', [\Mesa\Http\Controllers\ImportController::class, 'import'])->name('import');
