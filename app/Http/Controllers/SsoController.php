@@ -3,26 +3,33 @@
 namespace Mesa\Http\Controllers;
 
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Mesa\Http\Api\EsiClient;
 use Mesa\Models\Scopes;
+use Mesa\Http\Api\JWTValidator;
 
 class SsoController extends Controller
 {
     /** @var EsiClient $esi */
     protected EsiClient $esi;
 
+    /** @var JWTValidator $validator */
+    protected JWTValidator $validator;
+
     /**
      * SsoController constructor.
      *
      * @param EsiClientInterface $esi
      */
-    public function __construct(EsiClient $esi)
+    public function __construct(EsiClient $esi, JWTValidator $validator)
     {
         $this->esi = $esi;
+        $this->validator = $validator;
     }
 
     /**
@@ -59,17 +66,26 @@ class SsoController extends Controller
      */
     public function callback(Request $request)
     {
-        $auth = $this->esi->issueAccessToken($request);
+        try {
+            $auth = $this->esi->issueAccessToken($request);
 
-        $expires_on = Carbon::parse(Carbon::now())
-            ->addSeconds($auth->expires_in)
-            ->toIso8601String();
+            $expires_on = Carbon::parse(Carbon::now())
+                ->addSeconds($auth->expires_in)
+                ->toIso8601String();
 
-        Session::put('character.access_token', $auth->access_token);
-        Session::put('character.expires_on', $expires_on);
-        Session::put('character.refresh_token', $auth->refresh_token);
+            $this->validator->validate($auth->access_token);
 
-        return $this->verify();
+            Session::put('character.access_token', $auth->access_token);
+            Session::put('character.expires_on', $expires_on);
+            Session::put('character.refresh_token', $auth->refresh_token);
+
+            return $this->verify();
+        } catch (Exception $e) {
+            Log::error('SSO error ' . $e->getMessage());
+
+            Session::flush();
+            return redirect()->route('home');
+        }
     }
 
     /**

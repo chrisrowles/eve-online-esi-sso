@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 /**
@@ -71,7 +72,7 @@ class EsiClient implements EsiClientInterface
      * @param string $method
      * @return bool|mixed
      */
-    public function fetch(string $endpoint = '', string $method = 'GET')
+    public function fetch(string $endpoint = '', string $method = 'GET', bool $isVersioned = true, $isAssociated = false)
     {
         $endpoint .= $this->server;
         try {
@@ -83,7 +84,10 @@ class EsiClient implements EsiClientInterface
                 ];
             }
 
-            $endpoint = '/'. $this->version . $endpoint;
+            if ($isVersioned) {
+                $endpoint = '/'. $this->version . $endpoint;
+            }
+
             $response = $this->client->request($method, $endpoint, $options);
         } catch (GuzzleException $e) {
             return false;
@@ -91,7 +95,7 @@ class EsiClient implements EsiClientInterface
 
         if ($response && $response->getStatusCode() === 200)
         {
-            return json_decode($response->getBody()->getContents());
+            return json_decode($response->getBody()->getContents(), $isAssociated);
         }
 
         return false;
@@ -163,10 +167,10 @@ class EsiClient implements EsiClientInterface
         $auth = json_decode($response->getBody()->getContents());
         $expires_on = Carbon::parse(Carbon::now())->addSeconds($auth->expires_in)->toIso8601String();
 
-        session()->put('character.access_token', $auth->access_token);
-        session()->put('character.expires_on', $expires_on);
-        session()->put('character.refresh_token', $auth->refresh_token);
-        session()->save();
+        Session::put('character.access_token', $auth->access_token);
+        Session::put('character.expires_on', $expires_on);
+        Session::put('character.refresh_token', $auth->refresh_token);
+        Session::save();
     }
 
     /**

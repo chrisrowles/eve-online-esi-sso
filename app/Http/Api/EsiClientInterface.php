@@ -9,7 +9,9 @@ interface EsiClientInterface
      *
      * @param string $endpoint
      * @param string $method
+     * @param bool $isVersioned
+     * @param bool $isAssociated
      * @return mixed
      */
-    public function fetch(string $endpoint, string $method);
+    public function fetch(string $endpoint, string $method, bool $isVersioned, bool $isAssociated);
 }
