@@ -1,8 +1,8 @@
 <?php
 
-namespace Mesa\Http\Api\Import;
+namespace App\Http\Api\Import;
 
-use Mesa\Http\Api\EsiClient;
+use App\Http\Api\EsiClient;
 
 class EsiLocations extends EsiClient
 {

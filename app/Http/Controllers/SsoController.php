@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Exception;
@@ -9,9 +9,9 @@ use Illuminate\Routing\Controller;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
-use Mesa\Contracts\EsiClientContract;
-use Mesa\Models\Scopes;
-use Mesa\Http\Api\JwtValidator;
+use App\Contracts\EsiClientContract;
+use App\Models\Scopes;
+use App\Http\Api\JwtValidator;
 
 class SsoController extends Controller
 {

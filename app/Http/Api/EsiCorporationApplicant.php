@@ -1,8 +1,8 @@
 <?php
 
-namespace Mesa\Http\Api;
+namespace App\Http\Api;
 
-use Mesa\Http\Api\EsiClient;
+use App\Http\Api\EsiClient;
 
 /**
  * ESI Applicant Management.

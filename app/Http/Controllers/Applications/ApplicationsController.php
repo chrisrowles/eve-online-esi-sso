@@ -1,9 +1,9 @@
 <?php
 
-namespace Mesa\Http\Controllers\Applications;
+namespace App\Http\Controllers\Applications;
 
 use Illuminate\Http\Request;
-use Mesa\Models\Application;
+use App\Models\Application;
 
 class ApplicationsController extends Controller
 {

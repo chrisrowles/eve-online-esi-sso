@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
 

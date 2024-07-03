@@ -1,12 +1,12 @@
 <?php
 
-namespace Mesa\Http\Controllers\Corporation;
+namespace App\Http\Controllers\Corporation;
 
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Mesa\Models\Application;
+use App\Models\Application;
 
 class ApplicationsController extends Controller
 {

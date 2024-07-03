@@ -1,9 +1,9 @@
 <?php
 
-namespace Mesa\Http\Middleware;
+namespace App\Http\Middleware;
 
 use Closure;
-use Mesa\Http\Api\EsiCorporationManagement;
+use App\Http\Api\EsiCorporationManagement;
 
 class EsiAuthenticate
 {

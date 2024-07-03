@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Import;
+namespace App\Import;
 
 use Exception;
 

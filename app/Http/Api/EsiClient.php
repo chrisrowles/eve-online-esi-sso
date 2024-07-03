@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Api;
+namespace App\Http\Api;
 
 use Carbon\Carbon;
 use GuzzleHttp\Client;
@@ -8,7 +8,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-use Mesa\Contracts\EsiClientContract;
+use App\Contracts\EsiClientContract;
 
 /**
  * ESI auth client.

@@ -1,11 +1,11 @@
 <?php
 
-namespace Mesa\Http\Controllers\Corporation;
+namespace App\Http\Controllers\Corporation;
 
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
-use Mesa\Models\Application;
-use Mesa\Models\Contract;
+use App\Models\Application;
+use App\Models\Contract;
 
 class DashboardController extends Controller
 {

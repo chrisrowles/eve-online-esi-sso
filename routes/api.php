@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/import/{type}/{subtype}', [\Mesa\Http\Controllers\ImportController::class, 'import'])->name('import');
+Route::post('/import/{type}/{subtype}', [\App\Http\Controllers\ImportController::class, 'import'])->name('import');

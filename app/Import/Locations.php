@@ -1,14 +1,14 @@
 <?php
 
-namespace Mesa\Import;
+namespace App\Import;
 
 use Illuminate\Support\Facades\Log;
-use Mesa\Http\Api\Import\EsiLocations;
-use Mesa\Models\Region;
-use Mesa\Models\Constellation;
-use Mesa\Models\System;
-use Mesa\Models\Stargate;
-use Mesa\Models\Station;
+use App\Http\Api\Import\EsiLocations;
+use App\Models\Region;
+use App\Models\Constellation;
+use App\Models\System;
+use App\Models\Stargate;
+use App\Models\Station;
 
 class Locations extends AbstractImporter
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Mesa\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
-use Mesa\Contracts\EsiClientContract;
-use Mesa\Http\Api\EsiClient;
-use Mesa\Http\Api\Import\EsiLocations;
+use App\Contracts\EsiClientContract;
+use App\Http\Api\EsiClient;
+use App\Http\Api\Import\EsiLocations;
 
 class EsiServiceProvider extends ServiceProvider
 {

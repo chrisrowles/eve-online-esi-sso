@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Middleware;
+namespace App\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode as Middleware;
 

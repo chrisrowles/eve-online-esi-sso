@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Contracts;
+namespace App\Contracts;
 
 use Illuminate\Http\Request;
 

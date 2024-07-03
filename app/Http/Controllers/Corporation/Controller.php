@@ -1,11 +1,11 @@
 <?php
 
-namespace Mesa\Http\Controllers\Corporation;
+namespace App\Http\Controllers\Corporation;
 
 use Carbon\Carbon;
 use Illuminate\Routing\Controller as BaseController;
-use Mesa\Http\Api\EsiClient;
-use Mesa\Http\Api\EsiCorporationManagement;
+use App\Http\Api\EsiClient;
+use App\Http\Api\EsiCorporationManagement;
 
 
 class Controller extends BaseController

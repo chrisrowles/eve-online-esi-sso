@@ -1,12 +1,12 @@
 <?php
 
-namespace Mesa\Http\Controllers\Corporation;
+namespace App\Http\Controllers\Corporation;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-use Mesa\Models\WalletJournal;
+use App\Models\WalletJournal;
 
 class FinanceController extends Controller
 {

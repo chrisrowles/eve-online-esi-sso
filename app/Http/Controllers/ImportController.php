@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Exception;
 use Illuminate\Routing\Controller;
@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 class ImportController extends Controller
 {
     /** @var string */
-    protected string $namespace = '\\Mesa\\Import\\';
+    protected string $namespace = '\\App\\Import\\';
 
     /**
      * Import various data from ESI.

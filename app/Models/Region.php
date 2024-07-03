@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\{Model, Builder};
 use Illuminate\Database\Eloquent\Relations\HasMany;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mesa\Http\Controllers\Corporation;
+namespace App\Http\Controllers\Corporation;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Contracts\Foundation\Application;

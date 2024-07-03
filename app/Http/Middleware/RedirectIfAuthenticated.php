@@ -1,8 +1,8 @@
 <?php
 
-namespace Mesa\Http\Middleware;
+namespace App\Http\Middleware;
 
-use Mesa\Providers\RouteServiceProvider;
+use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 

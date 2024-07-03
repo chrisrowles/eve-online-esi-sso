@@ -1,14 +1,14 @@
 <?php
 
-namespace Mesa\Http\Api;
+namespace App\Http\Api;
 
 use Illuminate\Support\Facades\Log;
-use Mesa\Models\Station;
-use Mesa\Models\Contract;
-use Mesa\Models\OrderHistory;
-use Mesa\Models\WalletJournal;
-use Mesa\Models\WalletTransaction;
-use Mesa\Http\Api\EsiClient;
+use App\Models\Station;
+use App\Models\Contract;
+use App\Models\OrderHistory;
+use App\Models\WalletJournal;
+use App\Models\WalletTransaction;
+use App\Http\Api\EsiClient;
 
 /**
  * ESI Corporation Management.

@@ -169,12 +169,12 @@ return [
         /*
          * Application Service Providers...
          */
-        Mesa\Providers\AppServiceProvider::class,
-        Mesa\Providers\AuthServiceProvider::class,
-        //Mesa\Providers\BroadcastServiceProvider::class,
-        Mesa\Providers\EventServiceProvider::class,
-        Mesa\Providers\RouteServiceProvider::class,
-        Mesa\Providers\EsiServiceProvider::class
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        //App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        App\Providers\EsiServiceProvider::class
 
     ],
 

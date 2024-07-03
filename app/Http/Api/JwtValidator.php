@@ -1,11 +1,11 @@
 <?php
 
-namespace Mesa\Http\Api;
+namespace App\Http\Api;
 
 use Exception;
 use Firebase\JWT\JWK;
 use Firebase\JWT\JWT;
-use Mesa\Http\Api\EsiClient;
+use App\Http\Api\EsiClient;
 
 class JwtValidator extends EsiClient
 {    
