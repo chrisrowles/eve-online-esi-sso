@@ -67,37 +67,4 @@
 
 @section('additional_scripts')
     @parent
-    <script>
-        $(document).ready(() => {
-            $.fn.dataTable.ext.search.push((settings, data) => {
-                    let status = $('#status-filter option:selected').val();
-                    let col = data[7] ? data[7].toLowerCase().replace(" ", "_") : data[7];
-
-                if (status === col || status === 'all' || status === undefined) {
-                        return data;
-                    }
-                }
-            );
-
-            let table = $('#corporate_contracts').DataTable({
-                order: [[ 6, "desc" ]]
-            });
-
-            let filter = '<label class="ml-3">Filter by status: ' +
-                '             <select class="form-control form-control-sm" name="status-filter" id="status-filter">\n' +
-                '                 <option value="all" selected></option>\n' +
-                '                 <option value="failed">Failed</option>\n' +
-                '                 <option value="finished">Finished</option>\n' +
-                '                 <option value="in_progress">In Progress</option>\n' +
-                '                 <option value="outstanding">Outstanding</option>\n' +
-                '             </select>' +
-                '         </label>';
-
-            $('#corporate_contracts_filter').append(filter);
-
-            $('#status-filter').change(() => {
-                table.draw();
-            });
-        })
-    </script>
 @endsection

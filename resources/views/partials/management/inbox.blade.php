@@ -40,21 +40,4 @@
 
 @section('additional_scripts')
     @parent
-    <script>
-        $(document).ready(() => {
-            $.fn.dataTable.ext.search.push((settings, data) => {
-                    let status = $('#status-filter option:selected').val();
-                    let col = data[7] ? data[7].toLowerCase().replace(" ", "_") : data[7];
-
-                    if (status === col || status === 'all' || status === undefined) {
-                        return data;
-                    }
-                }
-            );
-
-            $('#evemail_inbox').DataTable({
-                order: [[ 0, "desc" ]]
-            });
-        })
-    </script>
 @endsection

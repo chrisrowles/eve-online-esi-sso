@@ -58,40 +58,4 @@
 
 @section('additional_scripts')
     @parent
-    <script>
-        $(document).ready(() => {
-            $.fn.dataTable.ext.search.push((settings, data) => {
-                    let status = $('#order-division-filter option:selected').val();
-                    let col = data[1].toLowerCase().replace(" ", "_");
-
-                    if (status === col || status === 'all' || status === undefined) {
-                        return data;
-                    }
-                }
-            );
-
-            let table = $('#corporate_orders').DataTable({
-                order: [[ 6, "desc" ]]
-            });
-
-            // TODO remove hard-coded divisions
-            let filter = '<label class="ml-3">Division: ' +
-                '             <select class="form-control form-control-sm" name="order-division-filter" id="order-division-filter">\n' +
-                '                 <option value="all" selected></option>\n' +
-                '                 <option value="collateral_fund">Collateral Fund</option>\n' +
-                '                 <option value="srp_fund">SRP Fund</option>\n' +
-                '                 <option value="rent_fund">Rent Fund</option>\n' +
-                '                 <option value="industry_fund">Industry Fund</option>\n' +
-                '                 <option value="agreements">Agreements</option>\n' +
-                '                 <option value="profits">Profits</option>\n' +
-                '             </select>' +
-                '         </label>';
-
-            $('#corporate_orders_filter').append(filter);
-
-            $('#order-division-filter').change(() => {
-                table.draw();
-            });
-        })
-    </script>
 @endsection

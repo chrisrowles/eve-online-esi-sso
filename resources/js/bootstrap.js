@@ -1,14 +1,6 @@
 import Swal from 'sweetalert2';
-
-import $ from 'jquery';
 import 'bootstrap';
-
-import 'datatables.net';
-import 'datatables.net-bs4';
-
 import './fontawesome';
-
-window.$ = window.jQuery = $;
 
 window.Toast = Swal.mixin({
     toast: true,

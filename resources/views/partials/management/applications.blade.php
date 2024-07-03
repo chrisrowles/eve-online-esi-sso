@@ -42,11 +42,4 @@
 
 @section('additional_scripts')
     @parent
-    <script>
-        $(document).ready(() => {
-            $('#corporate_applications').DataTable({
-                order: [[ 4, "desc" ]]
-            });
-        })
-    </script>
 @endsection
