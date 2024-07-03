@@ -3,7 +3,10 @@
 namespace Mesa\Http\Controllers\CorporateManagement;
 
 use Illuminate\Http\JsonResponse;
-use Mesa\{Region, Constellation, System, Station};
+use Mesa\Models\Region;
+use Mesa\Models\Constellation;
+use Mesa\Models\System;
+use Mesa\Models\Station;
 
 class LocationsController
 {

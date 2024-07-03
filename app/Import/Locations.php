@@ -2,9 +2,13 @@
 
 namespace Mesa\Import;
 
-use Log;
+use Illuminate\Support\Facades\Log;
 use Mesa\Http\Api\Import\EsiLocations;
-use Mesa\{Region, Constellation, System, Stargate, Station};
+use Mesa\Models\Region;
+use Mesa\Models\Constellation;
+use Mesa\Models\System;
+use Mesa\Models\Stargate;
+use Mesa\Models\Station;
 
 class Locations extends AbstractImporter
 {

@@ -2,7 +2,7 @@
 
 namespace Mesa\Http\Controllers;
 
-use Mesa\Contract;
+use Mesa\Models\Contract;
 use Illuminate\Routing\Controller;
 
 class HomeController extends Controller

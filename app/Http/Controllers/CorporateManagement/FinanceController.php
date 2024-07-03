@@ -5,9 +5,9 @@ namespace Mesa\Http\Controllers\CorporateManagement;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
-use Mesa\WalletJournal;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Mesa\Models\WalletJournal;
 
 class FinanceController extends BaseController
 {

@@ -2,8 +2,8 @@
 
 namespace Mesa\Http\Controllers\CorporateApplicants;
 
-use Mesa\Application;
 use Illuminate\Http\Request;
+use Mesa\Models\Application;
 
 class ApplicationsController extends BaseController
 {

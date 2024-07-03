@@ -4,9 +4,8 @@ namespace Mesa\Http\Controllers\CorporateManagement;
 
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
-use Mesa\Application;
-use Mesa\Contract;
-use Mesa\Http\Api\EsiCorporateManagement;
+use Mesa\Models\Application;
+use Mesa\Models\Contract;
 
 class HomeController extends BaseController
 {

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use GuzzleHttp\Exception\GuzzleException;
 use Mesa\Http\Api\Clients\EsiClientInterface;
-use Mesa\Scopes;
+use Mesa\Models\Scopes;
 
 class SsoController extends Controller
 {
@@ -32,8 +32,9 @@ class SsoController extends Controller
     public function login()
     {
         $scopes = Scopes::where('access', 'all')->pluck('name')->toArray();
+        $authorizationURL = $this->esi->getAuthorizationServerURL($scopes);
 
-        return $this->esi->authorize($scopes);
+        return redirect($authorizationURL);
     }
 
     /**

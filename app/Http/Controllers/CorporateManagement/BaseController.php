@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller;
 use Mesa\Http\Api\Clients\EsiAuthClient;
 use Mesa\Http\Api\EsiCorporateManagement;
 
+
 class BaseController extends Controller
 {
     /** @var EsiCorporateManagement $esi */

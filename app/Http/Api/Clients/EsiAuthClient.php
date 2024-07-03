@@ -3,7 +3,6 @@
 namespace Mesa\Http\Api\Clients;
 
 use Carbon\Carbon;
-use Log;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Str;

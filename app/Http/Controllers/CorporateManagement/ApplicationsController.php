@@ -6,7 +6,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Mesa\Application;
+use Mesa\Models\Application;
 
 class ApplicationsController extends BaseController
 {

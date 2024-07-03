@@ -2,7 +2,7 @@
 
 namespace Mesa\Http\Controllers\CorporateServices;
 
-use Mesa\System;
+use Mesa\Models\System;
 
 class RoutePlanningController extends BaseController
 {
