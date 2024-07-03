@@ -3,7 +3,7 @@
 namespace Mesa\Http\Middleware;
 
 use Closure;
-use Mesa\Http\Api\EsiCorporateManagement;
+use Mesa\Http\Api\EsiCorporationManagement;
 
 class EsiAuthenticate
 {
@@ -13,7 +13,7 @@ class EsiAuthenticate
             return redirect(route('esi.sso.login'));
         }
 
-        app()->instance(EsiCorporateManagement::class, session('character'));
+        app()->instance(EsiCorporationManagement::class, session('character'));
 
         return $next($request);
     }

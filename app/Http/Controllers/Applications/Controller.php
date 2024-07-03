@@ -5,12 +5,12 @@ namespace Mesa\Http\Controllers\Applications;
 use Carbon\Carbon;
 use Illuminate\Routing\Controller as BaseController;
 use Mesa\Http\Api\EsiClient;
-use Mesa\Http\Api\EsiCorporateApplicant;
+use Mesa\Http\Api\EsiCorporationApplicant;
 
 class Controller extends BaseController
 {
-    /** @var EsiCorporateApplicant $aplicant */
-    protected EsiCorporateApplicant $esi;
+    /** @var EsiCorporationApplicant $applicant */
+    protected EsiCorporationApplicant $esi;
 
     /** @var EsiClientInterface $auth */
     protected EsiClient $auth;
@@ -26,7 +26,7 @@ class Controller extends BaseController
 
         $this->middleware(function($request, $next) {
             if (session('character')) {
-                $this->esi = new EsiCorporateApplicant(session('character'));
+                $this->esi = new EsiCorporationApplicant(session('character'));
                 if (Carbon::parse(session('character.expires_on'))->isPast()) {
                     $this->auth->refreshAccessToken();
                 }

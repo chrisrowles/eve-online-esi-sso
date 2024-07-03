@@ -7,7 +7,7 @@ use Mesa\Http\Api\EsiClient;
 /**
  * ESI Applicant Management.
  */
-class EsiCorporateApplicant extends EsiClient
+class EsiCorporationApplicant extends EsiClient
 {
 
     /** @var mixed $id */
@@ -20,7 +20,7 @@ class EsiCorporateApplicant extends EsiClient
     protected array $data = [];
 
     /**
-     * EsiCorporateApplicant constructor.
+     * EsiCorporationApplicant constructor.
      *
      * @param $character
      */

@@ -11,9 +11,9 @@ use Mesa\Models\WalletTransaction;
 use Mesa\Http\Api\EsiClient;
 
 /**
- * ESI Corporate Management.
+ * ESI Corporation Management.
  */
-class EsiCorporateManagement extends EsiClient
+class EsiCorporationManagement extends EsiClient
 {
     /** @var mixed $id */
     public $id;
@@ -25,7 +25,7 @@ class EsiCorporateManagement extends EsiClient
     protected array $data = [];
 
     /**
-     * EsiCorporateManagement constructor.
+     * EsiCorporationManagement constructor.
      *
      * @param array $character
      */
