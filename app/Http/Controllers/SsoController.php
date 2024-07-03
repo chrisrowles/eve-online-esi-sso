@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Support\Facades\Session;
 use Mesa\Http\Api\EsiClient;
 use Mesa\Models\Scopes;
 
@@ -45,7 +46,7 @@ class SsoController extends Controller
      */
     public function logout()
     {
-        session()->flush();
+        Session::flush();
         return redirect()->route('home');
     }
 
@@ -64,9 +65,9 @@ class SsoController extends Controller
             ->addSeconds($auth->expires_in)
             ->toIso8601String();
 
-        session()->put('character.access_token', $auth->access_token);
-        session()->put('character.expires_on', $expires_on);
-        session()->put('character.refresh_token', $auth->refresh_token);
+        Session::put('character.access_token', $auth->access_token);
+        Session::put('character.expires_on', $expires_on);
+        Session::put('character.refresh_token', $auth->refresh_token);
 
         return $this->verify();
     }
@@ -81,10 +82,10 @@ class SsoController extends Controller
     {
         $character = $this->esi->verifyAuthorization();
 
-        session()->put('character.id', $character->CharacterID);
-        session()->put('character.name', $character->CharacterName);
-        session()->put('character.scopes', explode(" ", $character->Scopes));
-        session()->put('character.portrait', 'https://images.evetech.net/characters/'.
+        Session::put('character.id', $character->CharacterID);
+        Session::put('character.name', $character->CharacterName);
+        Session::put('character.scopes', explode(" ", $character->Scopes));
+        Session::put('character.portrait', 'https://images.evetech.net/characters/'.
             $character->CharacterID.'/portrait?tenant=tranquility&size=128');
 
 
