@@ -23,7 +23,7 @@
                     </thead>
                     <tbody>
                     @foreach($emails['received'] as $mail)
-                        <tr onclick="window.location = '{{ route('corporation.mailbox.view', ['id' => $mail->mail_id]) }}'">
+                        <tr onclick="window.location = '{{ route('mail.mailbox.view', ['id' => $mail->mail_id]) }}'">
                             <td>{{ $mail->mail_id }}</td>
                             <td>{{ $mail->from }}</td>
                             <td>{{ $mail->subject }}</td>

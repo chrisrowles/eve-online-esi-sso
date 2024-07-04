@@ -26,11 +26,13 @@ Route::group(['prefix' => 'apply'], function() {
     Route::post('submit', [\App\Http\Controllers\Applications\ApplicationsController::class, 'submit'])->name('apply.submit');
 });
 
+Route::middleware('esi')->group(function() {
+    Route::get('mailbox', [\App\Http\Controllers\MailController::class, 'index'])->name('mail.mailbox');
+    Route::get('mailbox/{id}', [\App\Http\Controllers\MailController::class, 'view'])->name('mail.mailbox.view');
+});
+
 Route::middleware('esi')->prefix('corporation')->group(function() {
     Route::get('dashboard', [\App\Http\Controllers\Corporation\DashboardController::class, 'index'])->name('corporation.dashboard');
-
-    Route::get('mailbox', [\App\Http\Controllers\Corporation\MailController::class, 'index'])->name('corporation.mailbox');
-    Route::get('mailbox/{id}', [\App\Http\Controllers\Corporation\MailController::class, 'view'])->name('corporation.mailbox.view');
     
     Route::get('applications', [\App\Http\Controllers\Corporation\ApplicationsController::class, 'index'])->name('corporation.applications');
     Route::get('applications/{applicant}', [\App\Http\Controllers\Corporation\ApplicationsController::class, 'view'])->name('corporation.applications.view');

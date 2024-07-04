@@ -4,34 +4,14 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
-use App\Contracts\EsiClientContract;
 use App\Models\Scopes;
-use App\Http\Api\JwtValidator;
 
 class SsoController extends Controller
 {
-    /** @var EsiClientContract $esi */
-    protected EsiClientContract $esi;
-
-    /** @var JwtValidator $validator */
-    protected JwtValidator $validator;
-
-    /**
-     * SsoController constructor.
-     *
-     * @param EsiClientContract $esi
-     */
-    public function __construct(EsiClientContract $esi, JwtValidator $validator)
-    {
-        $this->esi = $esi;
-        $this->validator = $validator;
-    }
-
     /**
      * Perform SSO login.
      *

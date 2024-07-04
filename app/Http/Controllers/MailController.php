@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Corporation;
+namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
 class MailController extends Controller
@@ -18,34 +19,37 @@ class MailController extends Controller
      */
     public function index()
     {
-        if (Cache::has('evemail:' . $this->esi->id)) {
-            $evemail = Cache::get('evemail:' . $this->esi->id);
+        $this->esi->setURL(config('eve.esi.api_uri'));
+
+        $character = Session::get('character');
+        if (Cache::has('evemail:' . $character['id'])) {
+            $evemail = Cache::get('evemail:' . $character['id']);
         } else {
-            $evemail = $this->esi->fetch('/characters/' . $this->esi->id . '/mail');
+            $evemail = $this->esi->fetch('/characters/' . $character['id'] . '/mail', 'GET', true);
             foreach ($evemail as $mail)
             {
-                $mail->from = $this->esi->fetch('/characters/' . $mail->from)->name ?? $mail->from;
+                $mail->from = $this->esi->fetch('/characters/' . $mail->from, 'GET', true)->name ?? $mail->from;
 
-                $mail->to = $this->esi->fetch('/characters/' . $mail->recipients[0]->recipient_id)->name
+                $mail->to = $this->esi->fetch('/characters/' . $mail->recipients[0]->recipient_id, 'GET', true)->name
                     ?? $mail->recipients[0]->recipient_id;
 
                 $mail->is_read = $mail->is_read ?? false;
             }
 
-            Cache::put('evemail:' . $this->esi->id, $evemail, 1300);
+            Cache::put('evemail:' . $character['id'], $evemail, 1300);
         }
 
         $emails = [];
         foreach ($evemail as $mail)
         {
-            if ($mail->from === $this->esi->name) {
+            if ($mail->from === $character['name']) {
                 $emails['sent'][] = $mail;
             } else {
                 $emails['received'][] = $mail;
             }
         }
 
-        return view('corporation.mailbox', compact('emails'));
+        return view('mail.mailbox', compact('emails'));
     }
 
     /**
@@ -56,7 +60,10 @@ class MailController extends Controller
      */
     public function view(string $id)
     {
-        $mail = $this->esi->fetch('/characters/' . $this->esi->id . '/mail/' . $id);
+        $this->esi->setURL(config('eve.esi.api_uri'));
+
+        $character = Session::get('character');
+        $mail = $this->esi->fetch('/characters/' . $character['id'] . '/mail/' . $id);
 
         if (! $mail) {
             return redirect()->back();
@@ -67,6 +74,6 @@ class MailController extends Controller
         $mail->to = $this->esi->fetch('/characters/' . $mail->recipients[0]->recipient_id)->name
             ?? $mail->recipients[0]->recipient_id;
 
-        return view('corporation.mail', compact('mail'));
+        return view('mail.mail', compact('mail'));
     }
 }

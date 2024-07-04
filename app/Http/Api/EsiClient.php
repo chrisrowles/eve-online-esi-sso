@@ -86,10 +86,14 @@ class EsiClient implements EsiClientContract
             }
 
             if ($isVersioned) {
-                $endpoint = '/'. $this->version . $endpoint;
+                $endpoint = $this->version . $endpoint;
             }
 
-            $response = $this->client->request($method, $endpoint, $options);
+            if (! str_starts_with($endpoint, '/')) {
+                $endpoint = '/' . $endpoint;
+            }
+
+            $response = $this->client->request($method, $this->url . $endpoint, $options);
         } catch (GuzzleException $e) {
             return false;
         }

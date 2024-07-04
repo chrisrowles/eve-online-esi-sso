@@ -16,6 +16,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('apply') }}"><i class="fas fa-plus"></i> Apply to Join</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('mail.mailbox') }}">Mail</a>
+                </li>
                 @esiauth
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="corporate_management" role="button"
@@ -25,7 +28,6 @@
                         <div class="dropdown-menu" aria-labelledby="corporate_management">
                             <a class="dropdown-item nav-item" href="{{ route('corporation.dashboard') }}">Dashboard</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item nav-item" href="{{ route('corporation.mailbox') }}">Mail</a>
                             <a class="dropdown-item nav-item" href="{{ route('corporation.applications') }}">Applications</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item nav-item" href="{{ route('corporation.contracts') }}">Contracts</a>

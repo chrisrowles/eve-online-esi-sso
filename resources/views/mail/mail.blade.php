@@ -9,7 +9,7 @@
             <div class="row mt-3">
                 <div class="col-12 d-flex flex-lg-wrap align-items-center justify-content-between ">
                     <h1>{{ $mail->subject }} <small class="text-muted">(from {{ $mail->from }})</small></h1>
-                    <a class="btn btn-secondary btn-sm" href="{{ route('corporation.mailbox') }}">
+                    <a class="btn btn-secondary btn-sm" href="{{ route('mail.mailbox') }}">
                         <i class="fas fa-arrow-left"></i> Back to mailbox
                     </a>
                 </div>
