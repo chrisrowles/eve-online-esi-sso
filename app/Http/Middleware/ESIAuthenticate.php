@@ -9,6 +9,7 @@ use App\Http\Api\Services\CorporationManagementService;
 
 class ESIAuthenticate
 {
+    /** @var ESIClient */
     protected ESIClient $esi;
 
     /**
@@ -25,7 +26,6 @@ class ESIAuthenticate
      */
     public function handle($request, Closure $next)
     {
-        // dd(session('character'));
         if (! session('character')) {
             return redirect(route('esi.sso.login'));
         }
