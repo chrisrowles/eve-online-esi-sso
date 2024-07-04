@@ -4,13 +4,13 @@ namespace App\Exceptions;
 
 use Exception;
 
-class EsiUnauthorizedException extends Exception
+class ESIUnauthorizedException extends Exception
 {
     /** @var array $data  */
     protected array $data;
     
     /**
-     * EsiUnauthorizedException constructor
+     * ESIUnauthorizedException constructor
      * 
      * @param string $message
      * @param int $code
