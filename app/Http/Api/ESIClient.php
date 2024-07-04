@@ -274,7 +274,10 @@ class ESIClient implements ESIClientContract
         $systems = $this->fetch('/route/'.$origin.'/'.$destination);
 
         foreach ($systems as $id) {
-            $system = System::whereSystemId($id)->first();
+            $system = System::whereSystemId($id)
+                ->with('constellation.region')
+                ->first();
+                // dd($system);
             $route['route'][] = $system;
         }
 

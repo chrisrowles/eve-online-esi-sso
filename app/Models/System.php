@@ -18,7 +18,7 @@ class System extends Model
      */
     public function constellation(): BelongsTo
     {
-        return $this->belongsTo(Constellation::class);
+        return $this->belongsTo(Constellation::class, 'constellation_id', 'constellation_id');
     }
 
     /**

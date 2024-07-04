@@ -22,6 +22,12 @@
                         EVEMail
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('route.planner') }}">
+                        <i class="fas fa-rocket me-1"></i>
+                        Route Planner
+                    </a>
+                </li>
             </ul>
             <ul class="navbar-nav ms-auto d-flex align-items-center">
                 @_esi_authenticated

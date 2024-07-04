@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/route/planner', [\App\Http\Controllers\RouteController::class, 'index'])->name('route.planner');
-Route::post('/route/planner', [\App\Http\Controllers\RouteController::class, 'plan'])->name('route.planner.plan');
+
+Route::prefix('route')->group(function() {
+    Route::get('planner', [\App\Http\Controllers\RouteController::class, 'index'])->name('route.planner');
+    Route::post('planner', [\App\Http\Controllers\RouteController::class, 'plan'])->name('route.planner.submit');
+});
 
 Route::group(['prefix' => 'auth'], function() {
     Route::get('login', [\App\Http\Controllers\SSOController::class, 'login'])->name('esi.sso.login');

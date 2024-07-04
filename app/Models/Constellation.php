@@ -17,7 +17,7 @@ class Constellation extends Model
      */
     public function region(): BelongsTo
     {
-        return $this->belongsTo(Region::class);
+        return $this->belongsTo(Region::class, 'region_id', 'region_id');
     }
 
     /**

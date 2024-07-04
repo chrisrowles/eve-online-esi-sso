@@ -7,9 +7,14 @@ use Illuminate\Http\Request;
 
 class RouteController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $systems = System::all();
+
+        if ($this->isApi($request)) {
+            return response()->json($systems);
+        }
+
         return view('route.planner', compact('systems'));
     }
 
@@ -19,6 +24,10 @@ class RouteController extends Controller
             $request->get('origin'),
             $request->get('destination')
         );
+
+        if ($this->isApi($request)) {
+            return response()->json($route);
+        }
 
         return view('route.journey', compact('route'));
     }
