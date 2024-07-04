@@ -89,6 +89,7 @@ class SsoController extends Controller
     {
         $auth = $this->esi->verifyAuthorization();
         $character = $this->esi->fetchCharacterInformation($auth->CharacterID);
+        $corporation = $this->esi->fetchCorporationInformation($character->corporation_id);
 
         Session::put('character.id', $auth->CharacterID);
         Session::put('character.name', $auth->CharacterName);
@@ -97,6 +98,7 @@ class SsoController extends Controller
             $auth->CharacterID.'/portrait?tenant=tranquility&size=128');
 
         Session::put('character.security_status', $character->security_status);
+        Session::put('character.corporation', $corporation);
 
         Session::put('character.corporation_access', false);
         if (intval(config('eve.esi.corporation')) === intval($character->corporation_id)) {

@@ -20,4 +20,6 @@ interface EsiClientContract
     public function verifyAuthorization(): mixed;
 
     public function fetchCharacterInformation(int $id): mixed;
+
+    public function fetchCorporationInformation(int $id): mixed;
 }

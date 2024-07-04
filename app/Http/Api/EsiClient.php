@@ -228,4 +228,19 @@ class EsiClient implements EsiClientContract
 
         return json_decode($response->getBody()->getContents());
     }
+
+    /**
+     * Fetch publicly accessible corporation information
+     */
+    public function fetchCorporationInformation(mixed $id = null): mixed
+    {
+        if (! $id) {
+            $id = config('eve.esi.corporation');
+        }
+
+        $response = $this->client->request('GET', config('eve.esi.api_uri') . '/' . config('eve.esi.version')
+            . '/corporations/' . $id . '?datasource=tranquility');
+
+        return json_decode($response->getBody()->getContents());
+    }
 }

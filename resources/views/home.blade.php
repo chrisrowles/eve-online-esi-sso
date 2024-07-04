@@ -9,7 +9,7 @@
             <source src="{{ asset('images/eve2.mp4')}}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="intro-overlay filter d-flex flex-column">
+        <div class="intro-overlay d-flex flex-column">
             <h1>Sakagami Incorporated.</h1>
             <strong>New Eden's Premier Corporation</strong>
             <div class="my-5">@include('partials.calculators.haulage')</div>

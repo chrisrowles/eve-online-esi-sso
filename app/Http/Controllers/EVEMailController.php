@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 use App\Contracts\EsiClientContract;
 
-class MailController extends Controller
+class EVEMailController extends Controller
 {
     /**
      * EVEMail construcor

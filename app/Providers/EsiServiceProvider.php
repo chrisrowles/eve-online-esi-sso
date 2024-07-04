@@ -28,7 +28,11 @@ class EsiServiceProvider extends ServiceProvider
             EsiLocations::class
         );
 
-        Blade::if('esiauth', function () {
+        Blade::if('_esi_authenticated', function () {
+            return Session::has('character');
+        });
+
+        Blade::if('_esi_corporate_access', function () {
             return Session::has('character');
         });
     }

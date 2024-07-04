@@ -27,8 +27,10 @@ Route::group(['prefix' => 'apply'], function() {
 });
 
 Route::middleware('esi')->group(function() {
-    Route::get('mailbox', [\App\Http\Controllers\MailController::class, 'index'])->name('mail.mailbox');
-    Route::get('mailbox/{id}', [\App\Http\Controllers\MailController::class, 'view'])->name('mail.mailbox.view');
+    Route::prefix('evemail')->group(function() {
+        Route::get('mailbox', [\App\Http\Controllers\EVEMailController::class, 'index'])->name('mail.mailbox');
+        Route::get('mailbox/{id}', [\App\Http\Controllers\EVEMailController::class, 'view'])->name('mail.mailbox.view');
+    });
 });
 
 Route::middleware('esi')->prefix('corporation')->group(function() {
