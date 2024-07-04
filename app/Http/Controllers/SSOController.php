@@ -19,6 +19,7 @@ class SSOController extends Controller
     public function __construct(ESIClient $esi, JWTValidator $jwtValidator)
     {
         parent::__construct($esi);
+        $this->esi->setURL(config('eve.esi.login_uri'));
         $this->validator = $jwtValidator;
     }
 

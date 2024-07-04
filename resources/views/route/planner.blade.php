@@ -8,12 +8,12 @@
         <div class="container py-4">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card filter text-light">
+                    <div class="card filter">
                         <div class="card-body">
-                            <form>
+                            <form method="post" action"{{ route('route.planner.plan')}}">
                                 <div class="form-group">
-                                    <label for="source_system">Pickup System</label>
-                                    <select class="form-control" id="source_system" name="source_system">
+                                    <label for="origin">Pickup System</label>
+                                    <select class="form-control" id="origin" name="origin">
                                         <option value="false">-- Please Select --</option>
                                         @foreach($systems as $system)
                                             <option value="{{ $system->system_id }}"> {{ $system->name }}</option>
@@ -21,8 +21,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="destination_system">Destination System</label>
-                                    <select class="form-control" id="destination_system" name="destination_system">
+                                    <label for="destination">Destination System</label>
+                                    <select class="form-control" id="destination" name="destination">
                                         <option value="false">-- Please Select --</option>
                                         @foreach($systems as $system)
                                             <option value="{{ $system->system_id }}"> {{ $system->name }}</option>

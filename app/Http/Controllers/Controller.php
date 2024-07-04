@@ -18,5 +18,6 @@ class Controller extends BaseController
     public function __construct(ESIClientContract $esi)
     {
         $this->esi = $esi;
+        $this->esi->setURL(config('eve.esi.api_uri'));
     }
 }

@@ -13,15 +13,6 @@ use App\Contracts\ESIClientContract;
 class EVEMailController extends Controller
 {
     /**
-     * EVEMail construcor
-     */
-    public function __construct(ESIClientContract $esi)
-    {
-        parent::__construct($esi);
-        $this->esi->setURL(config('eve.esi.api_uri'));
-    }
-
-    /**
      * Fetch EVEmail from the ESI and add it to the cache...
      * ...because fetching mail takes a loooooong time.
      *

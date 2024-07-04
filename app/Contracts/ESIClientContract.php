@@ -74,4 +74,13 @@ interface ESIClientContract
      * @return mixed
      */
     public function fetchCorporationInformation(int $id): mixed;
+
+    /**
+     * Obtain information required for route.
+     *
+     * @param int $origin
+     * @param int $destination
+     * @return array
+     */
+    public function fetchRoute(int $origin, int $destination): array;
 }

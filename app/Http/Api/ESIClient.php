@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Contracts\ESIClientContract;
 use App\Exceptions\ESIUnauthorizedException;
+use App\Models\System;
 use Illuminate\Http\Response;
 
 /**
@@ -75,8 +76,12 @@ class ESIClient implements ESIClientContract
      * @param string $method
      * @return mixed
      */
-    public function fetch(string $endpoint = '', string $method = 'GET', bool $isVersioned = true, $isAssociated = false): mixed
-    {
+    public function fetch(
+        string $endpoint = '',
+        string $method = 'GET',
+        bool $isVersioned = true,
+        bool $isAssociated = false
+    ): mixed {
         $endpoint .= $this->server;
         try {
 
@@ -251,5 +256,28 @@ class ESIClient implements ESIClientContract
             . '/corporations/' . $id . '?datasource=tranquility');
 
         return json_decode($response->getBody()->getContents());
+    }
+
+    /**
+     * Obtain information required for route.
+     *
+     * @param int $origin
+     * @param int $destination
+     * @return array
+     */
+    public function fetchRoute(int $origin, int $destination): array
+    {
+        $route = [];
+        $route['origin'] = System::whereSystemId($origin)->first();
+        $route['destination'] = System::whereSystemId($destination)->first();
+
+        $systems = $this->fetch('/route/'.$origin.'/'.$destination);
+
+        foreach ($systems as $id) {
+            $system = System::whereSystemId($id)->first();
+            $route['route'][] = $system;
+        }
+
+        return $route;
     }
 }
