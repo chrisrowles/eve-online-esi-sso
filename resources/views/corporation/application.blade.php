@@ -14,7 +14,7 @@
             <hr>
             <div class="row mt-4">
                 <div class="col-6">
-                    <div class="card shadow bg-white">
+                    <div class="card shadow">
                         <div class="card-body">
                             <form>
                                 <div class="form-group">
@@ -64,8 +64,8 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="card shadow bg-white">
-                        <div class="card-header bg-white">
+                    <div class="card shadow">
+                        <div class="card-header">
                             <h2>Corporation History</h2>
                         </div>
                         <div class="card-body">

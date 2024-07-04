@@ -16,7 +16,7 @@
 </div>
 <div class="row mt-3">
     <div class="col-12">
-        <div class="card p-2 bg-white shadow border-0">
+        <div class="card p-2 shadow border-0">
             <div class="card-body">
                 <div class="row">
                     <div class="col-12 pb-4 d-flex align-items-center justify-content-between">

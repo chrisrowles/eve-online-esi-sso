@@ -17,7 +17,7 @@
             <hr>
             <div class="row mt-4">
                 <div class="col-12">
-                    <div class="card shadow bg-white">
+                    <div class="card shadow">
                         <div class="card-body">
                             <form>
                                 <div class="form-row px-4">

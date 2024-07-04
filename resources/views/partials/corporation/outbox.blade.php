@@ -9,7 +9,7 @@
 </div>
 <div class="row mt-3">
     <div class="col-12">
-        <div class="card p-2 bg-white shadow border-0">
+        <div class="card p-2 shadow border-0">
             <div class="card-body">
                 <table id="outbox" class="table table-sm table-hover">
                     <thead>

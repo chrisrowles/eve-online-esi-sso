@@ -11,7 +11,7 @@
 </head>
 <body>
 @include('partials.navbar')
-<main class="bg">
+<main class="bg-sakagami">
     @auth
     @endauth
     @yield('content')

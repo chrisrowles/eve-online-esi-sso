@@ -9,9 +9,9 @@
 </div>
 <div class="row mt-3">
     <div class="col-12">
-        <div class="card p-2 filter bg-dark text-white shadow border-0">
+        <div class="card p-2 shadow border-0">
             <div class="card-body">
-                <table id="applications" class="table table-sm bg-transparent">
+                <table id="applications" class="table table-sm">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>

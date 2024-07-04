@@ -3019,19 +3019,6 @@ function withinMaxClamp(min, value, max) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
-
-
-/***/ }),
-
-/***/ "./resources/js/bootstrap.js":
-/*!***********************************!*\
-  !*** ./resources/js/bootstrap.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var simple_datatables__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! simple-datatables */ "./node_modules/simple-datatables/dist/module.js");
@@ -3052,6 +3039,11 @@ window.Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().mixin({
     toast.addEventListener('mouseenter', (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().stopTimer));
     toast.addEventListener('mouseleave', (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().resumeTimer));
   }
+});
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('#toggle-dark-mode').addEventListener('click', function () {
+    document.body.classList.toggle('dark-mode');
+  });
 });
 window.dataTable = function (selector) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
@@ -3075,7 +3067,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.mjs");
 
 
-_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.library.add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faArrowLeft, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faArrowRight, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faCompass, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faHome, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPlus, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faRocket, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faWrench, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faStar, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faSignOutAlt, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faQuestionCircle, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faExclamationCircle, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faEnvelope, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faDollarSign, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faRedo, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faRedoAlt);
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.library.add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faArrowLeft, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faArrowRight, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faCompass, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faHome, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faPlus, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faMoon, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faRocket, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faWrench, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faStar, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faUser, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faSignOutAlt, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faQuestionCircle, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faExclamationCircle, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faEnvelope, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faDollarSign, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faRedo, _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__.faRedoAlt);
 _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_0__.dom.watch();
 
 /***/ }),

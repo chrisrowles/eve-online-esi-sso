@@ -12201,12 +12201,149 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+:root {
+  /* Light theme */
+  --bs-body-bg: #ffffff;
+  --bs-body-color: #000000;
+  --bs-card-bg: #ffffff;
+  --bs-card-color: #000000;
+  --bs-table-bg: #ffffff;
+  --bs-table-color: #000000;
+  --bs-input-bg: #ffffff;
+  --bs-input-border: #ced4da;
+  --bs-input-color: #495057;
+  --bs-input-placeholder: #6c757d;
+  --bs-input-focus-bg: #ffffff;
+  --bs-input-focus-border: #80bdff;
+  --bs-input-focus-color: #495057;
+  --bs-text-muted: #6c757d;
+  --bs-bg-dark: #343a40;
+  --bs-text-white: #ffffff;
+  /* Dark theme */
+  --bs-dark-body-bg: #010108;
+  --bs-dark-body-color: #ececec;
+  --bs-dark-card-bg: #212529;
+  --bs-dark-card-color: #ffffff;
+  --bs-dark-table-bg: #212529;
+  --bs-dark-table-color: #ffffff;
+  --bs-dark-input-bg: #282a2d;
+  --bs-dark-input-border: #6c757d;
+  --bs-dark-input-color: #ffffff;
+  --bs-dark-input-placeholder: #adb5bd;
+  --bs-dark-input-focus-bg: #495057;
+  --bs-dark-input-focus-border: #80bdff;
+  --bs-dark-input-focus-color: #ffffff;
+  --bs-dark-text-muted: #adb5bd;
+  --bs-dark-bg-dark: #212529;
+  --bs-dark-text-white: #ffffff;
+}
+
+/* Light theme styles */
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+.card {
+  background-color: var(--bs-card-bg);
+  color: var(--bs-card-color);
+}
+
+.table {
+  background-color: var(--bs-table-bg);
+  color: var(--bs-table-color);
+}
+
+input, select {
+  background-color: var(--bs-input-bg);
+  border-color: var(--bs-input-border);
+  color: var(--bs-input-color);
+}
+
+input::-moz-placeholder, select::-moz-placeholder {
+  color: var(--bs-input-placeholder);
+}
+
+input::placeholder, select::placeholder {
+  color: var(--bs-input-placeholder);
+}
+
+input:focus, select:focus {
+  background-color: var(--bs-input-focus-bg);
+  border-color: var(--bs-input-focus-border);
+  color: var(--bs-input-focus-color);
+}
+
+.text-muted {
+  color: var(--bs-text-muted) !important;
+}
+
+.bg-dark {
+  background-color: var(--bs-bg-dark) !important;
+}
+
+.text-white {
+  color: var(--bs-text-white) !important;
+}
+
+/* Dark theme styles */
+body.dark-mode {
+  background-color: var(--bs-dark-body-bg);
+  color: var(--bs-dark-body-color);
+}
+
+body.dark-mode .card {
+  background-color: var(--bs-dark-card-bg);
+  color: var(--bs-dark-card-color);
+}
+
+body.dark-mode .table,
+body.dark-mode .table th,
+body.dark-mode .table td {
+  background-color: var(--bs-dark-table-bg);
+  color: var(--bs-dark-table-color);
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background-color: var(--bs-dark-input-bg);
+  border-color: var(--bs-dark-input-border);
+  color: var(--bs-dark-input-color);
+}
+
+body.dark-mode input::-moz-placeholder, body.dark-mode select::-moz-placeholder {
+  color: var(--bs-dark-input-placeholder);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode select::placeholder {
+  color: var(--bs-dark-input-placeholder);
+}
+
+body.dark-mode input:focus,
+body.dark-mode select:focus {
+  background-color: var(--bs-dark-input-focus-bg);
+  border-color: var(--bs-dark-input-focus-border);
+  color: var(--bs-dark-input-focus-color);
+}
+
+body.dark-mode .text-muted {
+  color: var(--bs-dark-text-muted) !important;
+}
+
+body.dark-mode .bg-dark {
+  background-color: var(--bs-dark-bg-dark) !important;
+}
+
+body.dark-mode .text-white {
+  color: var(--bs-dark-text-white) !important;
+}
+
 body, html {
   height: 100%;
 }
 
 body {
-  background-color: #010108; /* Dark navy background */
   display: flex;
   flex-direction: column;
 }
@@ -12217,18 +12354,6 @@ main {
 
 nav {
   z-index: 100;
-}
-
-.bg-black {
-  background: #030303;
-}
-
-.bg {
-  background: radial-gradient(circle at bottom right, rgba(52, 199, 247, 0.4), #060303 34%);
-  color: white;
-}
-.bg .text-muted {
-  color: #cccccc !important;
 }
 
 .intro-section {
@@ -12268,33 +12393,6 @@ nav {
   background: rgba(0, 0, 0, 0.5); /* Optional for better readability */
 }
 
-#application .card {
-  border: 1px solid white;
-  background-color: rgba(100, 100, 100, 0.3);
-  color: white;
-}
-#application .card label {
-  font-weight: bold;
-}
-#application .card textarea {
-  background: rgba(100, 100, 100, 0.2);
-  color: white;
-}
-
-#haulage-calculator input.form-control, #haulage-calculator .form-control:disabled, #haulage-calculator .form-control[readonly] {
-  background: rgba(100, 100, 100, 0.2);
-  color: white;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
 .filter {
   position: relative;
   width: 100%;
@@ -12302,88 +12400,6 @@ nav {
   background: url(/images/rect_1.png?6186eb3b0179a3e6141a58022a895c03);
 }
 
-.bg-none {
-  background: transparent;
-}
-
-.font-big {
-  font-size: 1.3em;
-}
-
-.font-bigger {
-  font-size: 1.6em;
-}
-
-.font-bigly {
-  font-size: 2em;
-}
-
-.table-hover {
-  cursor: pointer;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-}
-
-/*== start of code for tooltips ==*/
-.tool {
-  cursor: help;
-  position: relative;
-}
-
-/*== common styles for both parts of tool tip ==*/
-.tool::before,
-.tool::after {
-  left: 50%;
-  opacity: 0;
-  position: absolute;
-  z-index: -100;
-}
-
-.tool:hover::before,
-.tool:focus::before,
-.tool:hover::after,
-.tool:focus::after {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-  z-index: 100;
-}
-
-/*== pointer tip ==*/
-.tool::before {
-  border-style: solid;
-  border-width: 1em 0.75em 0 0.75em;
-  border-color: #3E474F transparent transparent transparent;
-  bottom: 100%;
-  content: "";
-  margin-left: -0.5em;
-  transition: all 0.65s cubic-bezier(0.84, -0.18, 0.31, 1.26), opacity 0.65s 0.5s;
-  transform: scale(0.6) translateY(-90%);
-}
-
-.tool:hover::before,
-.tool:focus::before {
-  transition: all 0.65s cubic-bezier(0.84, -0.18, 0.31, 1.26) 0.2s;
-}
-
-.tool::after {
-  background: #3E474F;
-  border-radius: 0.25em;
-  bottom: 180%;
-  color: #EDEFF0;
-  content: attr(data-tip);
-  margin-left: -8.75em;
-  padding: 1em;
-  transition: all 0.65s cubic-bezier(0.84, -0.18, 0.31, 1.26) 0.2s;
-  transform: scale(0.6) translateY(50%);
-  width: 17.5em;
-}
-
-.tool:hover::after,
-.tool:focus::after {
-  transition: all 0.65s cubic-bezier(0.84, -0.18, 0.31, 1.26);
+.datatable-wrapper.no-footer .datatable-container {
+  border-bottom: none;
 }

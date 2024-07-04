@@ -35,7 +35,7 @@
                     </li>
                 @endesiauth
             </ul>
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto d-flex align-items-center">
                 @esiauth
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="esi_auth_menu" role="button"
@@ -56,6 +56,14 @@
                         </a>
                     </li>
                 @endesiauth
+                    <li class="nav-item">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="toggle-dark-mode">
+                            <label class="form-check-label" for="toggle-dark-mode">
+                                <i class="fas fa-moon text-warning"></i>
+                            </label>
+                        </div>
+                    </li>
             </ul>
         </div>
     </div>

@@ -4,7 +4,7 @@
             <i class="text-warning fas fa-exclamation-circle"></i> <small>Cargo size limited to 200,000m<sub>3</sub>, Collateral value limited to 2 billion ISK</small>
         </div>
     </div>
-    <div class="form-row">
+    <div class="row">
         <div class="col">
             <label for="collateral">Collateral</label>
             <input type="text" id="collateral" class="form-control" tabindex="1" placeholder="Collateral">
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="form-row mt-3">
+    <div class="row mt-3">
         <div class="col">
             <label for="jumps">Jumps</label>
             <input type="text" id="jumps" class="form-control" tabindex="2" placeholder="# of Jumps">
@@ -26,23 +26,17 @@
         </div>
     </div>
 
-    <div class="form-row mt-3">
+    <div class="row mt-3">
         <div class="col-12 d-flex align-items-center">
-            <div class="col-6">
-                <div class="form-row">
-                    <div class="col">
-                        <input type="checkbox" tabindex="3" id="rush">
-                        <label for="rush">Rush Delivery</label>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col">
-                        <input type="checkbox" tabindex="4" id="lowsec">
-                        <label for="lowsec">Through Lowsec</label>
-                    </div>
-                </div>
+            <div class="col-4">
+                <input class="form-checkbox" type="checkbox" tabindex="3" id="rush">
+                <label class="small ms-1" for="rush">Rush Delivery</label>
             </div>
-            <div class="col-6">
+            <div class="col-4">
+                <input class="form-checkbox" type="checkbox" tabindex="4" id="lowsec">
+                <label class="small ms-1" for="rush">Through Lowsec</label>
+            </div>
+            <div class="col-4">
                 <button class="btn btn-outline-light" id="calculate" type="button">Calculate</button>
             </div>
         </div>

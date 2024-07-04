@@ -91,7 +91,7 @@ class EsiCorporationManagement extends EsiClient
     }
 
     /**
-     * Fetch corporation divisions.
+     * Fetch corporation divisions (hangar or wallet).
      *
      * @param null $type
      * @return bool|mixed
