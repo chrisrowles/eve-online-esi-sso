@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Models\Scopes;
 use App\Contracts\ESIClientContract;
-use App\Http\Api\JwtValidator;
+use App\Http\Api\JWTValidator;
 
 class SSOController extends Controller
 {
-    /** @var JwtValidator $validator */
-    private JwtValidator $validator;
+    /** @var JWTValidator $validator */
+    private JWTValidator $validator;
 
-    public function __construct(ESIClientContract $esi, JwtValidator $jwtValidator)
+    public function __construct(ESIClientContract $esi, JWTValidator $jwtValidator)
     {
         parent::__construct($esi);
         $this->validator = $jwtValidator;
