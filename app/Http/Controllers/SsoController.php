@@ -9,9 +9,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Models\Scopes;
+use App\Contracts\EsiClientContract;
+use App\Http\Api\JwtValidator;
 
 class SsoController extends Controller
 {
+    /** @var JwtValidator $validator */
+    private JwtValidator $validator;
+
+    public function __construct(EsiClientContract $esi, JwtValidator $jwtValidator)
+    {
+        parent::__construct($esi);
+        $this->validator = $jwtValidator;
+    }
+
     /**
      * Perform SSO login.
      *

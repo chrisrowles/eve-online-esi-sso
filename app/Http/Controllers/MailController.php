@@ -8,9 +8,19 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
+use App\Contracts\EsiClientContract;
 
 class MailController extends Controller
 {
+    /**
+     * EVEMail construcor
+     */
+    public function __construct(EsiClientContract $esi)
+    {
+        parent::__construct($esi);
+        $this->esi->setURL(config('eve.esi.api_uri'));
+    }
+
     /**
      * Fetch EVEmail from the ESI and add it to the cache...
      * ...because fetching mail takes a loooooong time.
@@ -19,8 +29,6 @@ class MailController extends Controller
      */
     public function index()
     {
-        $this->esi->setURL(config('eve.esi.api_uri'));
-
         $character = Session::get('character');
         if (Cache::has('evemail:' . $character['id'])) {
             $evemail = Cache::get('evemail:' . $character['id']);
@@ -60,8 +68,6 @@ class MailController extends Controller
      */
     public function view(string $id)
     {
-        $this->esi->setURL(config('eve.esi.api_uri'));
-
         $character = Session::get('character');
         $mail = $this->esi->fetch('/characters/' . $character['id'] . '/mail/' . $id);
 
