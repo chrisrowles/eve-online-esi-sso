@@ -20,6 +20,8 @@ class RouteController extends Controller
 
     public function plan(Request $request)
     {
+        $systems = System::all();
+
         $route = $this->esi->fetchRoute(
             $request->get('origin'),
             $request->get('destination')
@@ -29,6 +31,6 @@ class RouteController extends Controller
             return response()->json($route);
         }
 
-        return view('route.journey', compact('route'));
+        return view('route.journey', compact('route', 'systems'));
     }
 }

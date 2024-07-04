@@ -281,6 +281,8 @@ class ESIClient implements ESIClientContract
             $route['route'][] = $system;
         }
 
+        $route['jumps'] = count($route['route']);
+
         return $route;
     }
 }

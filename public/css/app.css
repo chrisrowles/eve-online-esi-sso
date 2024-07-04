@@ -12356,6 +12356,18 @@ nav {
   z-index: 100;
 }
 
+.bg-nullsec {
+  background-color: #4b1311 !important;
+}
+
+.bg-lowsec {
+  background-color: #614c01 !important;
+}
+
+.bg-hisec {
+  background-color: #144227 !important;
+}
+
 .intro-section {
   font-family: Orbitron, sans-serif;
   position: relative;

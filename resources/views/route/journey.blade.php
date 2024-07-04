@@ -5,7 +5,8 @@
 .scrollable-timeline {
     display: flex;
     overflow-x: auto;
-    padding: 1rem 0;
+	scrollbar-width: thin;
+    scrollbar-color: #3b4350 #212529;
 }
 .timeline-item {
     flex: 0 0 auto;
@@ -16,18 +17,22 @@
 @endsection
 
 @section('content')
-<div id="route-planner" class="eve-bg">
-	<div class="container mt-5">
+<div id="route-planner">
+	<div class="container py-2">
+		<div class="row mt-3">
+			<div class="col-12">
+				<h1 class="mb-0">{{ config('app.name') }}</h1>
+				<small class="text-muted">Route Planning</small>
+			</div>
+		</div>
+		<hr>
         <div class="row">
             <!-- Origin System Card -->
-            <div class="col-md-6 mb-4">
+            <div class="col-6">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Origin</h4>
-                    </div>
                     <div class="card-body">
                         <h5 class="card-title mb-2">
-							<a href="#">{{ $route['origin']->name }}</a>
+							Origin: <a href="#">{{ $route['origin']->name }}</a>
 						</h5>
                         <p class="card-text mb-0"><strong>Security Class:</strong> {{ $route['origin']->security_class }}</p>
                         <p class="card-text mb-0"><strong>Security Status:</strong>
@@ -45,14 +50,11 @@
             </div>
 
             <!-- Destination System Card -->
-            <div class="col-md-6 mb-4">
+            <div class="col-6">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Destination</h4>
-                    </div>
                     <div class="card-body">
                         <h5 class="card-title mb-2">
-							<a href="#">{{ $route['destination']->name }}</a>
+							Destination: <a href="#">{{ $route['destination']->name }}</a>
 						</h5>
                         <p class="card-text mb-0"><strong>Security Class:</strong> {{ $route['destination']->security_class }}</p>
                         <p class="card-text mb-0"><strong>Security Status:</strong>
@@ -69,13 +71,25 @@
                 </div>
             </div>
         </div>
-
+		<hr>
         <!-- Route Timeline -->
-        <div class="row">
+		<div class="row">
+			<div class="col-12">
+				<h5 class="text-muted">Your route:</h5>
+			</div>
+		</div>
+        <div class="row mt-2">
             <div class="col-12">
-                <div class="scrollable-timeline">
+                <div class="scrollable-timeline pb-3">
                     @foreach ($route['route'] as $system)
-                        <div class="card timeline-item">
+                        <div @class([
+							'card',
+							'timeline-item',
+							'bg-nullsec' => round(floatval($system->security_status), 2) < 0,
+							'bg-lowsec' => round(floatval($system->security_status), 2) > 0
+							    && round(floatval($system->security_status), 2) < 0.5,
+							'bg-hisec' => round(floatval($system->security_status), 2) > 0.5
+						])>
                             <div class="card-body">
                                 <h5 class="card-title mb-2">
 									<a href="#">{{ $system->name }}</a>
@@ -95,6 +109,21 @@
                 </div>
             </div>
         </div>
+
+		<div class="row mt-3">
+			<div class="col-12">
+				<h5 class="text-muted">Plot another route:</h5>
+			</div>
+		</div>
+		<div class="row mt-2">
+			<div class="col">
+				<div class="card shadow">
+					<div class="card-body">
+						@include('partials.route-planner')
+					</div>
+				</div>
+			</div>
+		</div>
     </div>
     </div>
 </div>
