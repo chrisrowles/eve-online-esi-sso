@@ -12,14 +12,11 @@
 <body>
 @include('partials.navbar')
 <main class="bg-sakagami">
-    @auth
-    @endauth
     @yield('content')
-    @include('partials.alert')
 </main>
 <footer class="footer py-2">
     <div class="container text-center">
-        <span class="text-white">Copyright © {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved</span>
+        <span>Copyright © {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved</span>
     </div>
 </footer>
 <script src="{{ asset('js/app.js') }}"></script>

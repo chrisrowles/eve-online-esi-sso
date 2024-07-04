@@ -5,7 +5,7 @@
 
 @section('content')
     <div id="application" class="eve-bg h-100">
-        <div class="container py-4 text-light">
+        <div class="container py-4">
             <div class="row mt-3">
                 <div class="col-md-12">
                     <h1>Come fly with us!</h1>
@@ -15,7 +15,7 @@
         <div class="container pb-4">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card bg-dark filter">
+                    <div class="card">
                         <div class="card-body">
                             <form method="post" action="{{ route('apply.submit') }}">
                                 @csrf
@@ -44,7 +44,7 @@
                                     <textarea class="form-control" id="haiku" name="haiku"></textarea>
                                 </div>
 
-                                <button class="btn btn-outline-light">Submit Application</button>
+                                <button class="btn btn-success">Submit Application</button>
                             </form>
                         </div>
                     </div>

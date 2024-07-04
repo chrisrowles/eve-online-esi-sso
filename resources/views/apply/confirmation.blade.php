@@ -4,11 +4,11 @@
 @endsection
 
 @section('content')
-    <div id="confirmation" class="eve-bg text-light">
+    <div id="confirmation">
         <div class="container py-4">
             <div class="row mt-3">
                 <div class="col-md-12">
-                    <div class="card filter text-white">
+                    <div class="card">
                         <div class="card-header">
                             <h2>Application Received</h2>
                         </div>

@@ -3028,21 +3028,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-window.Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().mixin({
-  toast: true,
-  position: 'bottom-end',
-  animation: false,
-  showConfirmButton: false,
-  timer: 5000,
-  timerProgressBar: true,
-  onOpen: function onOpen(toast) {
-    toast.addEventListener('mouseenter', (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().stopTimer));
-    toast.addEventListener('mouseleave', (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().resumeTimer));
-  }
-});
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('#toggle-dark-mode').addEventListener('click', function () {
     document.body.classList.toggle('dark-mode');
+    document.querySelectorAll('font').forEach(function (font) {
+      font.size = 'initial';
+      font.color = document.body.classList.contains('dark-mode') ? 'white' : 'black';
+    });
   });
 });
 window.dataTable = function (selector) {

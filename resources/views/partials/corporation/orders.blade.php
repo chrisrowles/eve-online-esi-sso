@@ -10,7 +10,7 @@
 <div class="row mt-4">
     <div class="col-12 d-flex align-items-center justify-content-between">
         <h2>Order History</h2>
-        <small class="text-muted">(Total: {{ 173 }})</small>
+        <small class="text-muted">(Total Orders: {{ count($finances['orders']) }})</small>
     </div>
 </div>
 <div class="row mt-3">
@@ -21,7 +21,11 @@
                     <div class="col-12 pb-4 d-flex align-items-center justify-content-between">
                         <form action="{{ route('corporation.orders.update') }}" method="POST">
                             @csrf
-                            <button class="btn btn-sm btn-secondary" type="submit" id="update_orders">Update History</button>
+                            <button class="btn btn-sm btn-success text-white" type="submit" id="update_orders"
+                                    title="Refresh orders from the ESI">
+                                <i class="fas fa-redo-alt"></i>
+                                <span class="ms-1 small">Fetch orders from ESI</span>
+                            </button>
                         </form>
                     </div>
                 </div>

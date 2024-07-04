@@ -22,9 +22,10 @@
                     <div class="col-12 pb-4 d-flex align-items-center justify-content-between">
                         <form action="{{ route('corporation.finances.update') }}" method="POST">
                             @csrf
-                            <button class="btn btn-sm btn-info" type="submit" id="update_finances"
-                                    title="Refresh transaction history from the ESI">
-                                <i class="text-white fas fa-redo-alt"></i>
+                            <button class="btn btn-sm btn-success text-white" type="submit" id="update_finances"
+                                    title="Refresh wallet transactions from the ESI">
+                                <i class="fas fa-redo-alt"></i>
+                                <span class="ms-1 small">Fetch transactions from ESI</span>
                             </button>
                         </form>
                     </div>

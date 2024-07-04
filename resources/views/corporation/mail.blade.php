@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-    <div id="applicant">
+    <div id="mail">
         <div class="container py-2">
             <div class="row mt-3">
                 <div class="col-12 d-flex flex-lg-wrap align-items-center justify-content-between ">
@@ -17,7 +17,7 @@
             <hr>
             <div class="row mt-4">
                 <div class="col-12">
-                    <div class="card shadow">
+                    <div id="mail_content" class="card shadow d-none">
                         <div class="card-body">
                             <form>
                                 <div class="form-row px-4">
@@ -57,10 +57,17 @@
 
 @section('additional_scripts')
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let font = $('font');
-            font.attr('size', 'initial');
-            font.attr('color', 'black');
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('font').forEach((font) => {
+                font.size = 'initial';
+                font.color = document.querySelector('body').classList.contains('dark-mode')
+                    ? 'white'
+                    : 'black';
+            });
+
+            document.querySelector('#mail_content')
+                .classList
+                .remove('d-none');
         });
     </script>
 @endsection
