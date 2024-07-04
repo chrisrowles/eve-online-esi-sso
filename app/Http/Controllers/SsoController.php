@@ -96,14 +96,21 @@ class SsoController extends Controller
      */
     public function verify()
     {
-        $character = $this->esi->verifyAuthorization();
+        $auth = $this->esi->verifyAuthorization();
+        $character = $this->esi->fetchCharacterInformation($auth->CharacterID);
 
-        Session::put('character.id', $character->CharacterID);
-        Session::put('character.name', $character->CharacterName);
-        Session::put('character.scopes', explode(" ", $character->Scopes));
+        Session::put('character.id', $auth->CharacterID);
+        Session::put('character.name', $auth->CharacterName);
+        Session::put('character.scopes', explode(" ", $auth->Scopes));
         Session::put('character.portrait', 'https://images.evetech.net/characters/'.
-            $character->CharacterID.'/portrait?tenant=tranquility&size=128');
+            $auth->CharacterID.'/portrait?tenant=tranquility&size=128');
 
+        Session::put('character.security_status', $character->security_status);
+
+        Session::put('character.corporation_access', false);
+        if (intval(config('eve.esi.corporation')) === intval($character->corporation_id)) {
+            Session::put('character.corporation_access', true);
+        }
 
         return redirect(route('home'))
             ->with('logged_in', true);

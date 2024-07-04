@@ -18,4 +18,6 @@ interface EsiClientContract
     public function refreshAccessToken(): void;
 
     public function verifyAuthorization(): mixed;
+
+    public function fetchCharacterInformation(int $id): mixed;
 }

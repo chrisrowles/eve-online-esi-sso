@@ -159,6 +159,18 @@ class EsiCorporationManagement extends EsiClient
     }
 
     /**
+     * Fetch corporate customs offices
+     * 
+     * @return mixed
+     */
+    public function fetchCorporateCustomsOffices()
+    {
+        return $this->fetch('/corporations/'
+            . config('eve.esi.corporation')
+            . '/customs_offices');
+    }
+
+    /**
      * Update order history.
      *
      * @param mixed $orders

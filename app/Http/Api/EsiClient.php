@@ -213,4 +213,15 @@ class EsiClient implements EsiClientContract
 
         return $query;
     }
+
+    /**
+     * Fetch publicly accessible character information
+     */
+    public function fetchCharacterInformation(int $id): mixed
+    {
+        $response = $this->client->request('GET', config('eve.esi.api_uri') . '/' . config('eve.esi.version')
+            . '/characters/' . $id . '?datasource=tranquility');
+
+        return json_decode($response->getBody()->getContents());
+    }
 }
