@@ -90,8 +90,6 @@ class SSOController extends Controller
         $character = $this->esi->fetchCharacterInformation($auth->CharacterID);
         $corporation = $this->esi->fetchCorporationInformation($character->corporation_id);
 
-        dd($auth, $character, $corporation);
-
         Session::put('character.id', $auth->CharacterID);
         Session::put('character.name', $auth->CharacterName);
         Session::put('character.scopes', explode(" ", $auth->Scopes));
