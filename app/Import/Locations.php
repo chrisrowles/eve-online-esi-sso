@@ -3,7 +3,7 @@
 namespace App\Import;
 
 use Illuminate\Support\Facades\Log;
-use App\Http\Api\Import\EsiLocations;
+use App\Http\Api\Import\ESILocationsImportService;
 use App\Models\Region;
 use App\Models\Constellation;
 use App\Models\System;
@@ -12,8 +12,8 @@ use App\Models\Station;
 
 class Locations extends AbstractImporter
 {
-    /** @var EsiLocations $esi */
-    private EsiLocations $esi;
+    /** @var ESILocationsImportService $esi */
+    private ESILocationsImportService $esi;
 
     /**
      * Locations constructor.
