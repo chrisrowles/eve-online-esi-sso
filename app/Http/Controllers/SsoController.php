@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Exception;
-use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -53,7 +52,7 @@ class SsoController extends Controller
      *
      * @param Request $request
      * @return mixed
-     * @throws GuzzleException
+     * @throws ClientException
      */
     public function callback(Request $request)
     {
@@ -71,7 +70,7 @@ class SsoController extends Controller
             Session::put('character.refresh_token', $auth->refresh_token);
 
             return $this->verify();
-        } catch (Exception $e) {
+        } catch (ClientException $e) {
             Log::error('SSO error ' . $e->getMessage());
 
             Session::flush();
@@ -83,7 +82,7 @@ class SsoController extends Controller
      * Verify login and return character information.
      *
      * @return mixed
-     * @throws GuzzleException
+     * @throws ClientException
      */
     public function verify()
     {

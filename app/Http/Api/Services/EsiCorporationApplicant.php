@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Api;
+namespace App\Http\Api\Services;
 
 use App\Http\Api\EsiClient;
 

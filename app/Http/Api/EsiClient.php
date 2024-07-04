@@ -4,11 +4,13 @@ namespace App\Http\Api;
 
 use Carbon\Carbon;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Contracts\EsiClientContract;
+use App\Exceptions\EsiUnauthorizedException;
+use Illuminate\Http\Response;
 
 /**
  * ESI auth client.
@@ -94,7 +96,14 @@ class EsiClient implements EsiClientContract
             }
 
             $response = $this->client->request($method, $this->url . $endpoint, $options);
-        } catch (GuzzleException $e) {
+        } catch (ClientException $e) {
+            $status = $e->getResponse()->getStatusCode();
+            if ($status === Response::HTTP_FORBIDDEN) {
+                throw new EsiUnauthorizedException('Unauthorized, redirect to SSO login', 0, $e, [
+                    'status' => $status
+                ]);
+            }
+
             return false;
         }
 
@@ -130,7 +139,7 @@ class EsiClient implements EsiClientContract
      * @param Request $request
      * @return mixed
      *
-     * @throws GuzzleException
+     * @throws ClientException
      */
     public function issueAccessToken(Request $request): mixed
     {
@@ -153,7 +162,7 @@ class EsiClient implements EsiClientContract
     /**
      * Refresh access token.
      *
-     * @throws GuzzleException
+     * @throws ClientException
      * @return void
      */
     public function refreshAccessToken(): void
@@ -182,7 +191,7 @@ class EsiClient implements EsiClientContract
      * Verify login and return character information.
      *
      * @return bool|mixed
-     * @throws GuzzleException
+     * @throws ClientException
      */
     public function verifyAuthorization(): mixed
     {

@@ -15,23 +15,6 @@
             <div class="my-5">@include('partials.calculators.haulage')</div>
         </div>
     </section>
-
-    {{-- <main class="content-section container">
-        <div class="row">
-            <div class="col-md-4">
-                <h2>Column 1</h2>
-                <p>Placeholder content for the first column.</p>
-            </div>
-            <div class="col-md-4">
-                <h2>Column 2</h2>
-                <p>Placeholder content for the second column.</p>
-            </div>
-            <div class="col-md-4">
-                <h2>Column 3</h2>
-                <p>Placeholder content for the third column.</p>
-            </div>
-        </div>
-    </main> --}}
 @endsection
 
 @section('additional_scripts')

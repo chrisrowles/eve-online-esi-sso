@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Corporation;
 use Carbon\Carbon;
 use Illuminate\Routing\Controller as BaseController;
 use App\Http\Api\EsiClient;
-use App\Http\Api\EsiCorporationManagement;
+use App\Http\Api\Services\EsiCorporationManagement;
 
 
 class Controller extends BaseController

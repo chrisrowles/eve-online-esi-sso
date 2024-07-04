@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Http\Api\EsiCorporationManagement;
+use App\Http\Api\Services\EsiCorporationManagement;
 
 class EsiAuthenticate
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Api;
+namespace App\Http\Api\Services;
 
 use Illuminate\Support\Facades\Log;
 use App\Models\Station;
@@ -100,8 +100,7 @@ class EsiCorporationManagement extends EsiClient
     {
         $divisions = $this->fetch('/corporations/' . config('eve.esi.corporation') . '/divisions');
 
-        if (!is_null($type))
-        {
+        if (!is_null($type)) {
             $divisions = $divisions->{$type} ?? $divisions;
         }
 
