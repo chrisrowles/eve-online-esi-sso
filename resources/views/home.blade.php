@@ -12,6 +12,7 @@
         <div class="intro-overlay filter d-flex flex-column">
             <h1>Sakagami Incorporated.</h1>
             <strong>New Eden's Premier Corporation</strong>
+            @include('partials.calculators.haulage')
         </div>
     </section>
 
