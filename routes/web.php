@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'auth'], function() {
-    Route::get('login', [\App\Http\Controllers\SsoController::class, 'login'])->name('esi.sso.login');
-    Route::get('callback', [\App\Http\Controllers\SsoController::class, 'callback'])->name('esi.sso.callback');
-    Route::get('logout', [\App\Http\Controllers\SsoController::class, 'logout'])->name('esi.sso.logout');
+    Route::get('login', [\App\Http\Controllers\SSOController::class, 'login'])->name('esi.sso.login');
+    Route::get('callback', [\App\Http\Controllers\SSOController::class, 'callback'])->name('esi.sso.callback');
+    Route::get('logout', [\App\Http\Controllers\SSOController::class, 'logout'])->name('esi.sso.logout');
 });
 
 Route::group(['prefix' => 'apply'], function() {
@@ -41,11 +41,11 @@ Route::middleware('esi')->prefix('corporation')->group(function() {
     Route::put('applications/{applicant}', [\App\Http\Controllers\Corporation\ApplicationsController::class, 'decideApplication'])->name('corporation.applications.update');
     
     Route::get('contracts', [\App\Http\Controllers\Corporation\ContractsController::class, 'index'])->name('corporation.contracts');
-    Route::post('contracts', [\App\Http\Controllers\Corporation\ContractsController::class, 'updateContractsFromEsi'])->name('corporation.contracts.update');
+    Route::post('contracts', [\App\Http\Controllers\Corporation\ContractsController::class, 'updateContractsFromESI'])->name('corporation.contracts.update');
     
     Route::get('finances', [\App\Http\Controllers\Corporation\FinanceController::class, 'index'])->name('corporation.finances');
-    Route::post('finances', [\App\Http\Controllers\Corporation\FinanceController::class, 'updateJournalTransactionsFromEsi'])->name('corporation.finances.update');
+    Route::post('finances', [\App\Http\Controllers\Corporation\FinanceController::class, 'updateJournalTransactionsFromESI'])->name('corporation.finances.update');
     
     Route::get('orders', [\App\Http\Controllers\Corporation\OrdersController::class, 'index'])->name('corporation.orders');
-    Route::post('orders', [\App\Http\Controllers\Corporation\OrdersController::class, 'updateOrderHistoryFromEsi'])->name('corporation.orders.update');
+    Route::post('orders', [\App\Http\Controllers\Corporation\OrdersController::class, 'updateOrderHistoryFromESI'])->name('corporation.orders.update');
 });

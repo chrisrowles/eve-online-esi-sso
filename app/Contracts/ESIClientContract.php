@@ -4,7 +4,7 @@ namespace App\Contracts;
 
 use Illuminate\Http\Request;
 
-interface EsiClientContract
+interface ESIClientContract
 {
     /**
      * Set the base URL for the client

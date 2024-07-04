@@ -2,12 +2,12 @@
 
 namespace App\Http\Api\Services;
 
-use App\Http\Api\EsiClient;
+use App\Http\Api\ESIClient;
 
 /**
  * ESI Applicant Management.
  */
-class EsiCorporationApplicant extends EsiClient
+class CorporateApplicantService extends ESIClient
 {
 
     /** @var mixed $id */
@@ -20,7 +20,7 @@ class EsiCorporationApplicant extends EsiClient
     protected array $data = [];
 
     /**
-     * EsiCorporationApplicant constructor.
+     * CorporateApplicantService constructor.
      *
      * @param $character
      */

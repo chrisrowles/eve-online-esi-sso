@@ -32,7 +32,7 @@ class OrdersController extends Controller
      *
      * @return RedirectResponse
      */
-    public function updateOrderHistoryFromEsi(): RedirectResponse
+    public function updateOrderHistoryFromESI(): RedirectResponse
     {
         $this->esi->updateDataAccessOrderHistory();
         return redirect()->back();

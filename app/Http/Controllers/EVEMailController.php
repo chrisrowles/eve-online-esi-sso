@@ -8,14 +8,14 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
-use App\Contracts\EsiClientContract;
+use App\Contracts\ESIClientContract;
 
 class EVEMailController extends Controller
 {
     /**
      * EVEMail construcor
      */
-    public function __construct(EsiClientContract $esi)
+    public function __construct(ESIClientContract $esi)
     {
         parent::__construct($esi);
         $this->esi->setURL(config('eve.esi.api_uri'));

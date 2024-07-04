@@ -3,19 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
-use App\Contracts\EsiClientContract;
+use App\Contracts\ESIClientContract;
 
 class Controller extends BaseController
 {
-    /** @var EsiClientContract $esi */
-    protected EsiClientContract $esi;
+    /** @var ESIClientContract $esi */
+    protected ESIClientContract $esi;
     
     /**
-    * SsoController constructor.
+    * SSOController constructor.
     *
-    * @param EsiClientContract $esi
+    * @param ESIClientContract $esi
     */
-    public function __construct(EsiClientContract $esi)
+    public function __construct(ESIClientContract $esi)
     {
         $this->esi = $esi;
     }

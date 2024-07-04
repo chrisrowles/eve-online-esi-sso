@@ -2,15 +2,15 @@
 
 namespace App\Http\Api\Import;
 
-use App\Http\Api\EsiClient;
+use App\Http\Api\ESIClient;
 
-class EsiLocations extends EsiClient
+class ESILocationsImportService extends ESIClient
 {
     /** @var string $type */
     protected string $type;
 
     /**
-     * EsiLocations constructor
+     * ESILocationsImportService constructor
      */
     public function __construct()
     {
@@ -39,7 +39,7 @@ class EsiLocations extends EsiClient
      * Set location type for the ESI.
      *
      * @param mixed $type
-     * @return EsiLocations
+     * @return ESILocationsImportService
      */
     public function setType($type)
     {

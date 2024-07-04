@@ -32,7 +32,7 @@ class FinanceController extends Controller
      *
      * @return RedirectResponse
      */
-    public function updateJournalTransactionsFromEsi(): RedirectResponse
+    public function updateJournalTransactionsFromESI(): RedirectResponse
     {
         $this->esi->updateDataAccessJournalTransactions();
         return redirect()->back();

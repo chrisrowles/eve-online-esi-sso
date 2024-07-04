@@ -25,7 +25,7 @@ class ContractsController extends Controller
      *
      * @return RedirectResponse
      */
-    public function updateContractsFromEsi(): RedirectResponse
+    public function updateContractsFromESI(): RedirectResponse
     {
         $this->esi->updateDataAccessContracts();
         return redirect()->back();

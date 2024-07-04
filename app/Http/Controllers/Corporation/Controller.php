@@ -4,30 +4,30 @@ namespace App\Http\Controllers\Corporation;
 
 use Carbon\Carbon;
 use Illuminate\Routing\Controller as BaseController;
-use App\Http\Api\EsiClient;
-use App\Http\Api\Services\EsiCorporationManagement;
+use App\Http\Api\ESIClient;
+use App\Http\Api\Services\CorporationManagementService;
 
 
 class Controller extends BaseController
 {
-    /** @var EsiCorporationManagement $esi */
-    protected EsiCorporationManagement $esi;
+    /** @var CorporationManagementService $esi */
+    protected CorporationManagementService $esi;
 
-    /** @var EsiClient $auth */
-    protected EsiClient $auth;
+    /** @var ESIClient $auth */
+    protected ESIClient $auth;
 
     /**
      * BaseController constructor.
      *
-     * @param EsiClient $auth
+     * @param ESIClient $auth
      */
-    public function __construct(EsiClient $auth)
+    public function __construct(ESIClient $auth)
     {
         $this->auth = $auth;
 
         $this->middleware(function($request, $next) {
             if (session('character')) {
-                $this->esi = new EsiCorporationManagement(session('character'));
+                $this->esi = new CorporationManagementService(session('character'));
                 if (Carbon::parse(session('character.expires_on'))->isPast()) {
                     $this->auth->refreshAccessToken();
                 }

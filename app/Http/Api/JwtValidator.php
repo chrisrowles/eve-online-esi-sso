@@ -5,9 +5,9 @@ namespace App\Http\Api;
 use Exception;
 use Firebase\JWT\JWK;
 use Firebase\JWT\JWT;
-use App\Http\Api\EsiClient;
+use App\Http\Api\ESIClient;
 
-class JwtValidator extends EsiClient
+class JwtValidator extends ESIClient
 {    
     /**
      * Validate JWT tokens from ESI

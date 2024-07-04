@@ -5,11 +5,11 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
-use App\Contracts\EsiClientContract;
-use App\Http\Api\EsiClient;
-use App\Http\Api\Import\EsiLocations;
+use App\Contracts\ESIClientContract;
+use App\Http\Api\ESIClient;
+use App\Http\Api\Import\ESILocationsImportService;
 
-class EsiServiceProvider extends ServiceProvider
+class ESIServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
@@ -19,13 +19,13 @@ class EsiServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind(
-            EsiClientContract::class,
-            EsiClient::class
+            ESIClientContract::class,
+            ESIClient::class
         );
 
         $this->app->bind(
             'esi.locations',
-            EsiLocations::class
+            ESILocationsImportService::class
         );
 
         Blade::if('_esi_authenticated', function () {

@@ -8,14 +8,14 @@ use GuzzleHttp\Exception\ClientException;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-use App\Contracts\EsiClientContract;
-use App\Exceptions\EsiUnauthorizedException;
+use App\Contracts\ESIClientContract;
+use App\Exceptions\ESIUnauthorizedException;
 use Illuminate\Http\Response;
 
 /**
  * ESI auth client.
  */
-class EsiClient implements EsiClientContract
+class ESIClient implements ESIClientContract
 {
     /** @var string $server */
     protected string $server;
@@ -39,7 +39,7 @@ class EsiClient implements EsiClientContract
     protected $secretKey;
 
     /**
-     * EsiClient constructor.
+     * ESIClient constructor.
      *
      * @param string|null $server
      */
@@ -99,7 +99,7 @@ class EsiClient implements EsiClientContract
         } catch (ClientException $e) {
             $status = $e->getResponse()->getStatusCode();
             if ($status === Response::HTTP_FORBIDDEN) {
-                throw new EsiUnauthorizedException('Unauthorized, redirect to SSO login', 0, $e, [
+                throw new ESIUnauthorizedException('Unauthorized, redirect to SSO login', 0, $e, [
                     'status' => $status
                 ]);
             }

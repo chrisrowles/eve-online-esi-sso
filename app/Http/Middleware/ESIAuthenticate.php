@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\Http\Api\Services\EsiCorporationManagement;
+use App\Http\Api\Services\CorporationManagementService;
 
-class EsiAuthenticate
+class ESIAuthenticate
 {
     public function handle($request, Closure $next)
     {
@@ -13,7 +13,7 @@ class EsiAuthenticate
             return redirect(route('esi.sso.login'));
         }
 
-        app()->instance(EsiCorporationManagement::class, session('character'));
+        app()->instance(CorporationManagementService::class, session('character'));
 
         return $next($request);
     }

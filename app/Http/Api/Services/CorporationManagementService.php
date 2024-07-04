@@ -8,12 +8,12 @@ use App\Models\Contract;
 use App\Models\OrderHistory;
 use App\Models\WalletJournal;
 use App\Models\WalletTransaction;
-use App\Http\Api\EsiClient;
+use App\Http\Api\ESIClient;
 
 /**
  * ESI Corporation Management.
  */
-class EsiCorporationManagement extends EsiClient
+class CorporationManagementService extends ESIClient
 {
     /** @var mixed $id */
     public $id;
@@ -25,7 +25,7 @@ class EsiCorporationManagement extends EsiClient
     protected array $data = [];
 
     /**
-     * EsiCorporationManagement constructor.
+     * CorporationManagementService constructor.
      *
      * @param array $character
      */
