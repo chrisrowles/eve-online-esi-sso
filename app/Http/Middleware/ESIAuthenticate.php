@@ -5,7 +5,6 @@ namespace App\Http\Middleware;
 use Closure;
 use Carbon\Carbon;
 use App\Http\Api\ESIClient;
-use App\Http\Api\Services\CorporationManagementService;
 
 class ESIAuthenticate
 {
@@ -35,8 +34,6 @@ class ESIAuthenticate
                 $this->esi->refreshAccessToken();
             }
         }
-
-        app()->instance(CorporationManagementService::class, session('character'));
 
         return $next($request);
     }
