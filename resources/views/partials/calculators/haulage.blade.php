@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let cost = 0;
         let baseRate = 0;
 
-        function numberWithCommas(x) {
+        function formatNumber(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
@@ -120,8 +120,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (cost > 0) {
-            document.querySelector('#cost').value = numberWithCommas(cost.toFixed(2));
-            document.querySelector('#cost_per_jump').value = numberWithCommas((cost / jumps).toFixed(2));
+            document.querySelector('#cost').value = formatNumber(cost.toFixed(2));
+            document.querySelector('#cost_per_jump').value = formatNumber((cost / jumps).toFixed(2));
         }
     }
 });
