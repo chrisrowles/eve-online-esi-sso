@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-none py-2">
     <div class="container">
         <a class="navbar-brand" href="{{ route('home') }}">
-            SAKAGAMI
+            <img src="{{ asset('images/logo-small.png')}}" style="width: 60px;border: 2px solid #222222;border-radius: 50%">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

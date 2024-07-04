@@ -38,6 +38,23 @@ single-use authorization code that expires in 5 minutes from the time of issue.
     }
     ```
 
+6. The callback endpoint will retrieve the JSON payload and validate the access token, see [docs](https://docs.esi.evetech.net/docs/sso/validating_eve_jwt.html) for more details on how this validation is performed.
+
+7. The callback endpoint will make an authenticated GET request to `https://login.eveonline.com/oauth/verify`. EVE SSO will respond with a JSON payload containing authenticated character information that looks like this:
+    ```
+    {
+      "CharacterID": 96542725
+      "CharacterName": "Solomon Kaldari"
+      "ExpiresOn": "2024-07-04T18:11:20"
+      "Scopes": "esi-alliances.read_contacts.v1 esi-assets.read_assets.v1..."
+      "TokenType": "Character"
+      "CharacterOwnerHash": "HxZWS89g1jAdT3gagRypEadDMm4="
+      "IntellectualProperty": "EVE"
+    }
+    ```
+
+8. A new user session will be created for the authenticated character with relevant access permissions depending on the character's corporation and assigned roles.
+
 ## Useful Links
 
 * [Crowd-sourced documentation](https://docs.esi.evetech.net/)

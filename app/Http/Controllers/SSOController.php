@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Models\Scopes;
-use App\Contracts\ESIClientContract;
+use App\Http\Api\ESIClient;
 use App\Http\Api\JWTValidator;
 
 class SSOController extends Controller
@@ -16,7 +16,7 @@ class SSOController extends Controller
     /** @var JWTValidator $validator */
     private JWTValidator $validator;
 
-    public function __construct(ESIClientContract $esi, JWTValidator $jwtValidator)
+    public function __construct(ESIClient $esi, JWTValidator $jwtValidator)
     {
         parent::__construct($esi);
         $this->validator = $jwtValidator;
@@ -69,7 +69,7 @@ class SSOController extends Controller
             Session::put('character.expires_on', $expires_on);
             Session::put('character.refresh_token', $auth->refresh_token);
 
-            return $this->verify();
+            return $this->verifyLogin();
         } catch (ClientException $e) {
             Log::error('SSO error ' . $e->getMessage());
 
@@ -84,11 +84,13 @@ class SSOController extends Controller
      * @return mixed
      * @throws ClientException
      */
-    public function verify()
+    private function verifyLogin()
     {
         $auth = $this->esi->verifyAuthorization();
         $character = $this->esi->fetchCharacterInformation($auth->CharacterID);
         $corporation = $this->esi->fetchCorporationInformation($character->corporation_id);
+
+        dd($auth, $character, $corporation);
 
         Session::put('character.id', $auth->CharacterID);
         Session::put('character.name', $auth->CharacterName);

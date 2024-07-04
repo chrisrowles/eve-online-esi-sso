@@ -3029,13 +3029,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('#toggle-dark-mode').addEventListener('click', function () {
+  var toggleDarkMode = function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
+    var isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('dark-mode', isDarkMode);
     document.querySelectorAll('font').forEach(function (font) {
       font.size = 'initial';
-      font.color = document.body.classList.contains('dark-mode') ? 'white' : 'black';
+      font.color = isDarkMode ? 'white' : 'black';
     });
-  });
+  };
+  var darkModePreference = localStorage.getItem('dark-mode');
+  if (darkModePreference === 'true') {
+    document.body.classList.add('dark-mode');
+    document.querySelector('#toggle-dark-mode').checked = true;
+  }
+  document.querySelector('#toggle-dark-mode').addEventListener('click', toggleDarkMode);
 });
 window.dataTable = function (selector) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
