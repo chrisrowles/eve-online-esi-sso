@@ -7,7 +7,7 @@
     @if(!empty($finances['balances']))
         @foreach($finances['balances'] as $division)
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-3">
-                <div class="card p-2 bg-dark text-white filter shadow">
+                <div class="card p-0 bg-transparent border-0">
                     <div class="card-body">
                         <h5>{{ $division->name }}</h5>
                         <span class="{{ $division->balance > 25000000 ? 'text-success' : 'text-danger' }}">

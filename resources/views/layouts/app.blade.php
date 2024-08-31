@@ -11,7 +11,7 @@
 </head>
 <body>
 @include('partials.navbar')
-<main class="bg-sakagami">
+<main class="bg-sakagami bg-space">
     @yield('content')
 </main>
 <footer class="footer py-2">
@@ -19,6 +19,7 @@
         <span>Copyright © {{ date('Y') }} {{ config('app.name') }}. All Rights Reserved</span>
     </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 @yield('additional_scripts')
 </body>
