@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Corporation;
 
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
-use App\Models\Application;
 use App\Models\WalletJournal;
 
 class DashboardController extends Controller
@@ -14,7 +13,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $finances['balances'] = $this->esi->buildCorporateBalances();
+        $finances['balances'] = $this->esi->buildCorporateBalances(true);
         $finances['journal'] = WalletJournal::with('division')->get();
         $finances['total'] = 0;
     
@@ -23,8 +22,6 @@ class DashboardController extends Controller
             $finances['total'] += $division->balance;
         }
 
-        $applications = Application::all();
-
-        return view('corporation.dashboard', compact('finances', 'applications'));
+        return view('corporation.dashboard', compact('finances'));
     }
 }

@@ -40,8 +40,6 @@
                             <div class="dropdown-menu" aria-labelledby="corporate_management">
                                 <a class="dropdown-item nav-item" href="{{ route('corporation.dashboard') }}">Dashboard</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item nav-item" href="{{ route('corporation.applications') }}">Applications</a>
-                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item nav-item" href="{{ route('corporation.contracts') }}">Contracts</a>
                                 <a class="dropdown-item nav-item" href="{{ route('corporation.finances') }}">Finances</a>
                                 <a class="dropdown-item nav-item" href="{{ route('corporation.orders') }}">Orders</a>

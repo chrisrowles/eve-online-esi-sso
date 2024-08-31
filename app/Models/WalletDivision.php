@@ -9,6 +9,10 @@ class WalletDivision extends Model
 {
     protected $table = 'wallet_divisions';
 
+    protected $guarded = [];
+
+    public $timestamps = false;
+
     public function journal()
     {
         return $this->hasMany(WalletJournal::class, 'division_id', 'division_id');
